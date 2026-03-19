@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services – Turing's Lab</title>
+  <meta name="description" content="Explore Turing's Lab QA services: Test Automation, AI-Assisted QA, and Quality Engineering for modern software teams." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Space Grotesk', sans-serif; }
+    body { background-color: #0F172A; color: #E5E7EB; }
+    .navbar-solid { background-color: rgba(15,23,42,0.96) !important; backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0,174,239,0.12); }
+    .gradient-text { background: linear-gradient(135deg,#00AEEF,#7DD3FC 50%,#00AEEF); background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:shimmer 4s linear infinite; }
+    @keyframes shimmer { 0%{background-position:0% center} 100%{background-position:200% center} }
+    .glow-sm { box-shadow: 0 0 20px rgba(0,174,239,0.15); }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,174,239,0.15); border-color: rgba(0,174,239,0.4) !important; }
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease,transform 0.65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-delay-1 { transition-delay:0.1s; }
+    .reveal-delay-2 { transition-delay:0.2s; }
+    .section-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(0,174,239,0.25),transparent); }
+    .tag { display:inline-block; padding:4px 14px; border-radius:9999px; font-size:0.7rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; }
+    .btn-primary { background:linear-gradient(135deg,#00AEEF,#0088CC); transition:all 0.3s ease; display:inline-block; }
+    .btn-primary:hover { box-shadow:0 0 30px rgba(0,174,239,0.55); transform:translateY(-2px); }
+    .btn-outline { border:1px solid rgba(0,174,239,0.45); transition:all 0.3s ease; display:inline-block; }
+    .btn-outline:hover { border-color:#00AEEF; background:rgba(0,174,239,0.08); transform:translateY(-2px); }
+    .nav-link { transition:color 0.2s ease; }
+    .nav-link:hover { color:#00AEEF; }
+    .grid-bg { background-image:linear-gradient(rgba(0,174,239,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,174,239,0.04) 1px,transparent 1px); background-size:60px 60px; }
+    .check { color:#00AEEF; font-weight:700; }
+  </style>
+</head>
+<body class="bg-[#0F172A] text-[#E5E7EB] antialiased">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-400 py-4">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold text-base">T</div>
+        <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="services.html"     class="nav-link text-sm text-[#00AEEF] font-semibold">Services</a>
+        <a href="methodology.html"  class="nav-link text-sm text-[#94A3B8]">Methodology</a>
+        <a href="case-studies.html" class="nav-link text-sm text-[#94A3B8]">Case Studies</a>
+        <a href="about.html"        class="nav-link text-sm text-[#94A3B8]">About</a>
+        <a href="blog.html"         class="nav-link text-sm text-[#94A3B8]">Blog</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="btn-primary hidden md:inline-block px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
+        <button id="menuBtn" class="md:hidden text-[#94A3B8] p-1">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-[#1E293B]/95 backdrop-blur-md border-t border-[#334155] mt-4 px-6 py-5 space-y-4">
+      <a href="services.html"     class="block text-sm text-[#00AEEF] font-semibold">Services</a>
+      <a href="methodology.html"  class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Methodology</a>
+      <a href="case-studies.html" class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Case Studies</a>
+      <a href="about.html"        class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">About</a>
+      <a href="blog.html"         class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Blog</a>
+      <a href="contact.html"      class="btn-primary block text-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative grid-bg pt-36 pb-20 overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-72 bg-[#00AEEF] rounded-full filter blur-[100px] opacity-[0.07]"></div>
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="tag bg-[#00AEEF]/10 text-[#00AEEF] border border-[#00AEEF]/20 mb-5">What We Offer</div>
+      <h1 class="text-5xl font-bold text-white mb-5">Our <span class="gradient-text">Services</span></h1>
+      <p class="text-lg text-[#64748B] max-w-2xl mx-auto">
+        Comprehensive quality engineering solutions designed for modern, high-velocity engineering teams who can't afford to ship broken software.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SERVICE 1: TEST AUTOMATION -->
+  <section id="automation" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <div class="tag bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-5">Service 01</div>
+          <h2 class="text-4xl font-bold text-white mb-5">Test Automation</h2>
+          <p class="text-[#94A3B8] leading-relaxed mb-6">
+            We build enterprise-grade automated test suites that run reliably, execute fast, and are maintainable long-term. From unit tests to full end-to-end flows, we automate the right things — not everything.
+          </p>
+          <p class="text-[#94A3B8] leading-relaxed mb-8">
+            Our automation-first mindset means every test we write is designed to provide maximum signal with minimum noise, integrated directly into your CI/CD pipeline from day one.
+          </p>
+          <ul class="space-y-2.5 mb-8">
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> E2E automation with Playwright, Cypress, or Selenium</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> API testing and contract validation</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Visual regression testing</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Mobile automation for iOS and Android</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Performance and load testing frameworks</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Parallel execution and test sharding</li>
+          </ul>
+          <a href="contact.html" class="btn-primary px-7 py-3.5 rounded-xl text-sm font-semibold text-white">Get Started →</a>
+        </div>
+
+        <div class="reveal reveal-delay-1 grid grid-cols-2 gap-4">
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover">
+            <div class="text-3xl mb-3">🎭</div>
+            <h3 class="font-bold text-white mb-2">Playwright</h3>
+            <p class="text-xs text-[#64748B] leading-relaxed">Modern, fast, reliable cross-browser automation. Our primary tool for web E2E testing.</p>
+          </div>
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover">
+            <div class="text-3xl mb-3">🌲</div>
+            <h3 class="font-bold text-white mb-2">Cypress</h3>
+            <p class="text-xs text-[#64748B] leading-relaxed">Developer-friendly E2E testing with real-time reloads and excellent debugging.</p>
+          </div>
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover">
+            <div class="text-3xl mb-3">🔬</div>
+            <h3 class="font-bold text-white mb-2">Selenium</h3>
+            <p class="text-xs text-[#64748B] leading-relaxed">Industry-standard web automation for legacy systems and complex grid setups.</p>
+          </div>
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover">
+            <div class="text-3xl mb-3">📡</div>
+            <h3 class="font-bold text-white mb-2">API Testing</h3>
+            <p class="text-xs text-[#64748B] leading-relaxed">REST/GraphQL contract testing with Postman, REST Assured, and custom frameworks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SERVICE 2: AI-ASSISTED QA -->
+  <section id="ai-qa" class="py-24 bg-[#0A1323]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1 reveal">
+          <div class="bg-[#1E293B] border border-[#00AEEF]/25 rounded-2xl p-7 glow-sm space-y-4">
+            <div class="flex items-center gap-3 pb-4 border-b border-[#334155]">
+              <span class="text-xl">🤖</span>
+              <span class="text-sm font-semibold text-[#00AEEF]">AI Quality Engine — Active</span>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 p-3 bg-[#0F172A] rounded-xl">
+                <span class="text-green-400 text-sm mt-0.5">✓</span>
+                <div>
+                  <p class="text-xs font-semibold text-[#CBD5E1] mb-0.5">Test Generation</p>
+                  <p class="text-[11px] text-[#64748B]">Generated 47 new test cases from API spec diff. Coverage +12%.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-3 bg-[#0F172A] rounded-xl">
+                <span class="text-yellow-400 text-sm mt-0.5">⚠</span>
+                <div>
+                  <p class="text-xs font-semibold text-[#CBD5E1] mb-0.5">Flaky Test Detected</p>
+                  <p class="text-[11px] text-[#64748B]">dashboard.spec.ts:L142 — timing issue detected across 4 runs. Fix suggested.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-3 bg-[#0F172A] rounded-xl">
+                <span class="text-red-400 text-sm mt-0.5">●</span>
+                <div>
+                  <p class="text-xs font-semibold text-[#CBD5E1] mb-0.5">Failure Pattern</p>
+                  <p class="text-[11px] text-[#64748B]">Payment flow failing after deploy #2841. Root cause: API response schema change.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-3 bg-[#0F172A] rounded-xl">
+                <span class="text-[#00AEEF] text-sm mt-0.5">→</span>
+                <div>
+                  <p class="text-xs font-semibold text-[#CBD5E1] mb-0.5">Risk Prediction</p>
+                  <p class="text-[11px] text-[#64748B]">Checkout module: high risk score (8.4/10). Recommend additional E2E coverage before release.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2 reveal reveal-delay-1">
+          <div class="tag bg-[#00AEEF]/10 text-[#00AEEF] border border-[#00AEEF]/20 mb-5">Service 02 · Most Popular</div>
+          <h2 class="text-4xl font-bold text-white mb-5">AI-Assisted QA</h2>
+          <p class="text-[#94A3B8] leading-relaxed mb-6">
+            We embed artificial intelligence directly into your quality process. From auto-generating test cases based on code changes to detecting flaky test patterns before they cause CI failures — AI makes your QA smarter, not just bigger.
+          </p>
+          <p class="text-[#94A3B8] leading-relaxed mb-8">
+            Our AI layer learns your codebase, understands your risk areas, and continuously improves your test coverage without requiring manual effort.
+          </p>
+          <ul class="space-y-2.5 mb-8">
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> AI-powered test case generation from specs and diffs</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Flaky test detection and root cause analysis</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Failure pattern recognition across CI runs</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Risk scoring per module and deploy</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Intelligent test prioritization for faster feedback</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Automated quality reporting and trend analysis</li>
+          </ul>
+          <a href="contact.html" class="btn-primary px-7 py-3.5 rounded-xl text-sm font-semibold text-white">Book a Demo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SERVICE 3: QUALITY ENGINEERING -->
+  <section id="quality-eng" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <div class="tag bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-5">Service 03</div>
+          <h2 class="text-4xl font-bold text-white mb-5">Quality Engineering</h2>
+          <p class="text-[#94A3B8] leading-relaxed mb-6">
+            Quality Engineering goes beyond testing. It's about building quality into every stage of your software delivery lifecycle — from architecture decisions to deployment pipelines.
+          </p>
+          <p class="text-[#94A3B8] leading-relaxed mb-8">
+            We act as your embedded quality partner, designing and implementing the systems, processes, and culture that make reliable software delivery your default state.
+          </p>
+          <ul class="space-y-2.5 mb-8">
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> CI/CD quality gate design and implementation</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Release strategy and deployment confidence</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Reliability engineering and SLO definition</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Test environment architecture and management</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> QA team coaching and process maturity assessment</li>
+            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Observability and monitoring integration</li>
+          </ul>
+          <a href="contact.html" class="btn-primary px-7 py-3.5 rounded-xl text-sm font-semibold text-white">Get Started →</a>
+        </div>
+
+        <div class="reveal reveal-delay-1 space-y-4">
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover flex gap-4">
+            <div class="text-2xl flex-shrink-0">🔗</div>
+            <div>
+              <h3 class="font-bold text-white mb-1.5 text-sm">CI/CD Integration</h3>
+              <p class="text-xs text-[#64748B] leading-relaxed">Quality gates embedded in GitHub Actions, GitLab CI, Jenkins, or CircleCI. Fail fast, fix fast.</p>
+            </div>
+          </div>
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover flex gap-4">
+            <div class="text-2xl flex-shrink-0">📊</div>
+            <div>
+              <h3 class="font-bold text-white mb-1.5 text-sm">Release Strategy</h3>
+              <p class="text-xs text-[#64748B] leading-relaxed">Canary releases, feature flags, and progressive delivery frameworks aligned with your risk tolerance.</p>
+            </div>
+          </div>
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover flex gap-4">
+            <div class="text-2xl flex-shrink-0">🛡️</div>
+            <div>
+              <h3 class="font-bold text-white mb-1.5 text-sm">Reliability Engineering</h3>
+              <p class="text-xs text-[#64748B] leading-relaxed">SLO/SLA definition, error budgets, chaos engineering, and incident response integration.</p>
+            </div>
+          </div>
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover flex gap-4">
+            <div class="text-2xl flex-shrink-0">🎓</div>
+            <div>
+              <h3 class="font-bold text-white mb-1.5 text-sm">Team Enablement</h3>
+              <p class="text-xs text-[#64748B] leading-relaxed">Workshops, documentation, and coaching to embed quality engineering culture within your team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- CTA -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0B3C5D]/50 via-[#0F172A] to-[#0F172A]"></div>
+    <div class="relative max-w-3xl mx-auto px-6 text-center reveal">
+      <h2 class="text-4xl font-bold text-white mb-5">Not Sure Which Service You Need?</h2>
+      <p class="text-[#94A3B8] mb-8 leading-relaxed max-w-xl mx-auto">Book a free 30-minute discovery call. We'll assess your current QA maturity and recommend the best path forward.</p>
+      <a href="contact.html" class="btn-primary px-10 py-4 rounded-2xl text-base font-bold text-white">Book a Free Discovery Call →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#080F1C] border-t border-[#1E293B] py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold">T</div>
+            <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
+          </div>
+          <p class="text-sm text-[#475569] max-w-xs leading-relaxed">AI-Powered Quality Engineering. We help engineering teams ship reliable software faster.</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Company</p>
+          <div class="space-y-2.5">
+            <a href="services.html"     class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Services</a>
+            <a href="methodology.html"  class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Methodology</a>
+            <a href="case-studies.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Case Studies</a>
+            <a href="blog.html"         class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Blog</a>
+            <a href="about.html"        class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">About</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Get in Touch</p>
+          <div class="space-y-2.5">
+            <a href="contact.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Book a Call</a>
+            <p class="text-sm text-[#334155]">hello@turingslab.io</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-[#1E293B] pt-6 flex items-center justify-between">
+        <p class="text-sm text-[#334155]">© 2026 Turing's Lab. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('navbar-solid', window.scrollY > 60));
+    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible'); observer.unobserve(e.target);} }), {threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

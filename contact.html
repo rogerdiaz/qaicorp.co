@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Turing's Lab</title>
+  <meta name="description" content="Book a free consultation with Turing's Lab. Let's discuss how AI-powered quality engineering can help your team." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *{font-family:'Space Grotesk',sans-serif} body{background:#0F172A;color:#E5E7EB}
+    .navbar-solid{background:rgba(15,23,42,0.96)!important;backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,174,239,0.12)}
+    .gradient-text{background:linear-gradient(135deg,#00AEEF,#7DD3FC 50%,#00AEEF);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
+    @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,174,239,0.25),transparent)}
+    .tag{display:inline-block;padding:4px 14px;border-radius:9999px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
+    .btn-primary{background:linear-gradient(135deg,#00AEEF,#0088CC);transition:all 0.3s ease;display:inline-block}
+    .btn-primary:hover{box-shadow:0 0 30px rgba(0,174,239,0.55);transform:translateY(-2px)}
+    .nav-link{transition:color 0.2s ease}.nav-link:hover{color:#00AEEF}
+    .grid-bg{background-image:linear-gradient(rgba(0,174,239,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,174,239,0.04) 1px,transparent 1px);background-size:60px 60px}
+    .form-input{background:#1E293B;border:1px solid #334155;border-radius:12px;padding:12px 16px;width:100%;color:#E5E7EB;font-size:0.875rem;transition:border-color 0.2s ease,box-shadow 0.2s ease;outline:none}
+    .form-input:focus{border-color:#00AEEF;box-shadow:0 0 0 3px rgba(0,174,239,0.12)}
+    .form-input::placeholder{color:#475569}
+    .form-label{display:block;font-size:0.8rem;font-weight:500;color:#94A3B8;margin-bottom:6px;letter-spacing:0.03em}
+  </style>
+</head>
+<body class="bg-[#0F172A] text-[#E5E7EB] antialiased">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-400 py-4">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold text-base">T</div>
+        <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="services.html"     class="nav-link text-sm text-[#94A3B8]">Services</a>
+        <a href="methodology.html"  class="nav-link text-sm text-[#94A3B8]">Methodology</a>
+        <a href="case-studies.html" class="nav-link text-sm text-[#94A3B8]">Case Studies</a>
+        <a href="about.html"        class="nav-link text-sm text-[#94A3B8]">About</a>
+        <a href="blog.html"         class="nav-link text-sm text-[#94A3B8]">Blog</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="btn-primary hidden md:inline-block px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
+        <button id="menuBtn" class="md:hidden text-[#94A3B8] p-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-[#1E293B]/95 backdrop-blur-md border-t border-[#334155] mt-4 px-6 py-5 space-y-4">
+      <a href="services.html"     class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Services</a>
+      <a href="methodology.html"  class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Methodology</a>
+      <a href="case-studies.html" class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Case Studies</a>
+      <a href="about.html"        class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">About</a>
+      <a href="blog.html"         class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Blog</a>
+      <a href="contact.html"      class="btn-primary block text-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative grid-bg pt-36 pb-12 overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-72 bg-[#00AEEF] rounded-full filter blur-[100px] opacity-[0.07]"></div>
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div class="tag bg-[#00AEEF]/10 text-[#00AEEF] border border-[#00AEEF]/20 mb-5">Let's Talk</div>
+      <h1 class="text-5xl font-bold text-white mb-5"><span class="gradient-text">Book a Consultation</span></h1>
+      <p class="text-lg text-[#64748B]">Free 30-minute discovery call. No commitment. We'll listen first.</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="py-16 pb-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-5 gap-12">
+
+        <!-- Left: Form -->
+        <div class="lg:col-span-3 reveal">
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-8 lg:p-10">
+            <h2 class="text-xl font-bold text-white mb-2">Send us a message</h2>
+            <p class="text-sm text-[#64748B] mb-8">We typically respond within one business day.</p>
+
+            <form id="contactForm" class="space-y-5">
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="form-label" for="name">Full Name *</label>
+                  <input class="form-input" type="text" id="name" name="name" placeholder="Alex Rivera" required />
+                </div>
+                <div>
+                  <label class="form-label" for="email">Work Email *</label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="alex@company.com" required />
+                </div>
+              </div>
+
+              <div>
+                <label class="form-label" for="company">Company</label>
+                <input class="form-input" type="text" id="company" name="company" placeholder="Your company name" />
+              </div>
+
+              <div>
+                <label class="form-label" for="role">Your Role</label>
+                <select class="form-input" id="role" name="role" style="cursor:pointer">
+                  <option value="" disabled selected style="color:#475569">Select your role…</option>
+                  <option value="cto">CTO / VP Engineering</option>
+                  <option value="engineering-manager">Engineering Manager</option>
+                  <option value="lead">Tech Lead / Staff Engineer</option>
+                  <option value="qa-lead">QA Lead / SDET</option>
+                  <option value="founder">Founder / Co-Founder</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label" for="challenge">What's your biggest QA challenge right now? *</label>
+                <textarea class="form-input resize-none" id="challenge" name="challenge" rows="4" placeholder="e.g. Our regression cycle is too slow, we have too many production bugs, we have no automation…" required></textarea>
+              </div>
+
+              <div>
+                <label class="form-label" for="timeline">When are you looking to get started?</label>
+                <select class="form-input" id="timeline" name="timeline" style="cursor:pointer">
+                  <option value="" disabled selected style="color:#475569">Select timeline…</option>
+                  <option value="asap">As soon as possible</option>
+                  <option value="month">Within a month</option>
+                  <option value="quarter">Within this quarter</option>
+                  <option value="exploring">Just exploring options</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn-primary w-full py-4 rounded-xl text-base font-bold text-white text-center mt-2" style="border:none;cursor:pointer">
+                Book a Call →
+              </button>
+              <p class="text-xs text-[#475569] text-center">By submitting, you agree to be contacted by Turing's Lab. We never spam.</p>
+            </form>
+
+            <!-- Success message (hidden) -->
+            <div id="successMsg" class="hidden text-center py-12">
+              <div class="text-5xl mb-4">✅</div>
+              <h3 class="text-xl font-bold text-white mb-2">Message sent!</h3>
+              <p class="text-[#94A3B8] text-sm">We'll be in touch within one business day to schedule your call.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Info -->
+        <div class="lg:col-span-2 space-y-6 reveal">
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-7">
+            <h3 class="font-bold text-white mb-5">What to expect</h3>
+            <div class="space-y-4">
+              <div class="flex gap-3">
+                <div class="w-7 h-7 bg-[#00AEEF]/10 border border-[#00AEEF]/25 rounded-lg flex items-center justify-center text-xs font-bold text-[#00AEEF] flex-shrink-0">1</div>
+                <div>
+                  <p class="text-sm font-semibold text-white mb-0.5">We listen</p>
+                  <p class="text-xs text-[#64748B]">You walk us through your stack, team, and pain points.</p>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <div class="w-7 h-7 bg-[#00AEEF]/10 border border-[#00AEEF]/25 rounded-lg flex items-center justify-center text-xs font-bold text-[#00AEEF] flex-shrink-0">2</div>
+                <div>
+                  <p class="text-sm font-semibold text-white mb-0.5">We assess</p>
+                  <p class="text-xs text-[#64748B]">We identify the highest-value QA opportunity for your situation.</p>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <div class="w-7 h-7 bg-[#00AEEF]/10 border border-[#00AEEF]/25 rounded-lg flex items-center justify-center text-xs font-bold text-[#00AEEF] flex-shrink-0">3</div>
+                <div>
+                  <p class="text-sm font-semibold text-white mb-0.5">We propose</p>
+                  <p class="text-xs text-[#64748B]">You receive a tailored proposal with scope, timeline, and investment.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-7">
+            <h3 class="font-bold text-white mb-4">This call is right for you if…</h3>
+            <ul class="space-y-2.5">
+              <li class="flex gap-2 text-sm text-[#94A3B8]"><span class="text-green-400 flex-shrink-0">✓</span>Your regression cycles are too slow</li>
+              <li class="flex gap-2 text-sm text-[#94A3B8]"><span class="text-green-400 flex-shrink-0">✓</span>Bugs are reaching production too often</li>
+              <li class="flex gap-2 text-sm text-[#94A3B8]"><span class="text-green-400 flex-shrink-0">✓</span>You want to scale automation without scaling headcount</li>
+              <li class="flex gap-2 text-sm text-[#94A3B8]"><span class="text-green-400 flex-shrink-0">✓</span>Your CI pipeline needs quality gates</li>
+              <li class="flex gap-2 text-sm text-[#94A3B8]"><span class="text-green-400 flex-shrink-0">✓</span>You're releasing features but losing confidence</li>
+            </ul>
+          </div>
+
+          <div class="bg-gradient-to-br from-[#0B3C5D]/60 to-[#1E293B] border border-[#00AEEF]/20 rounded-2xl p-7">
+            <p class="text-sm font-semibold text-[#00AEEF] mb-1">Prefer email?</p>
+            <p class="text-xs text-[#64748B] mb-3">Drop us a line directly and we'll reply within 24 hours.</p>
+            <a href="mailto:hello@turingslab.io" class="text-sm font-semibold text-white hover:text-[#00AEEF] transition-colors">hello@turingslab.io →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#080F1C] border-t border-[#1E293B] py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold">T</div>
+            <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
+          </div>
+          <p class="text-sm text-[#475569] max-w-xs leading-relaxed">AI-Powered Quality Engineering for modern software teams.</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Company</p>
+          <div class="space-y-2.5">
+            <a href="services.html"     class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Services</a>
+            <a href="methodology.html"  class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Methodology</a>
+            <a href="case-studies.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Case Studies</a>
+            <a href="blog.html"         class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Blog</a>
+            <a href="about.html"        class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">About</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Get in Touch</p>
+          <div class="space-y-2.5">
+            <a href="contact.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Book a Call</a>
+            <p class="text-sm text-[#334155]">hello@turingslab.io</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-[#1E293B] pt-6"><p class="text-sm text-[#334155]">© 2026 Turing's Lab. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('navbar-solid', window.scrollY > 60));
+    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible'); observer.unobserve(e.target);} }), {threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('successMsg').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

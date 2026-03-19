@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Turing's Lab</title>
+  <meta name="description" content="Practical insights on AI testing, Playwright automation, quality engineering, and CI/CD best practices from Turing's Lab." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *{font-family:'Space Grotesk',sans-serif} body{background:#0F172A;color:#E5E7EB}
+    .navbar-solid{background:rgba(15,23,42,0.96)!important;backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,174,239,0.12)}
+    .gradient-text{background:linear-gradient(135deg,#00AEEF,#7DD3FC 50%,#00AEEF);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
+    @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
+    .card-hover{transition:transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s ease}
+    .card-hover:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,174,239,0.15);border-color:rgba(0,174,239,0.35)!important}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:0.1s}.reveal-delay-2{transition-delay:0.2s}
+    .section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,174,239,0.25),transparent)}
+    .tag{display:inline-block;padding:4px 14px;border-radius:9999px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
+    .btn-primary{background:linear-gradient(135deg,#00AEEF,#0088CC);transition:all 0.3s ease;display:inline-block}
+    .btn-primary:hover{box-shadow:0 0 30px rgba(0,174,239,0.55);transform:translateY(-2px)}
+    .nav-link{transition:color 0.2s ease}.nav-link:hover{color:#00AEEF}
+    .grid-bg{background-image:linear-gradient(rgba(0,174,239,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,174,239,0.04) 1px,transparent 1px);background-size:60px 60px}
+    .article-card:hover .read-link{color:#7DD3FC}
+  </style>
+</head>
+<body class="bg-[#0F172A] text-[#E5E7EB] antialiased">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-400 py-4">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold text-base">T</div>
+        <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="services.html"     class="nav-link text-sm text-[#94A3B8]">Services</a>
+        <a href="methodology.html"  class="nav-link text-sm text-[#94A3B8]">Methodology</a>
+        <a href="case-studies.html" class="nav-link text-sm text-[#94A3B8]">Case Studies</a>
+        <a href="about.html"        class="nav-link text-sm text-[#94A3B8]">About</a>
+        <a href="blog.html"         class="nav-link text-sm text-[#00AEEF] font-semibold">Blog</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="btn-primary hidden md:inline-block px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
+        <button id="menuBtn" class="md:hidden text-[#94A3B8] p-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-[#1E293B]/95 backdrop-blur-md border-t border-[#334155] mt-4 px-6 py-5 space-y-4">
+      <a href="services.html"     class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Services</a>
+      <a href="methodology.html"  class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Methodology</a>
+      <a href="case-studies.html" class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Case Studies</a>
+      <a href="about.html"        class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">About</a>
+      <a href="blog.html"         class="block text-sm text-[#00AEEF] font-semibold">Blog</a>
+      <a href="contact.html"      class="btn-primary block text-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative grid-bg pt-36 pb-20 overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-72 bg-[#00AEEF] rounded-full filter blur-[100px] opacity-[0.07]"></div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="tag bg-[#00AEEF]/10 text-[#00AEEF] border border-[#00AEEF]/20 mb-5">Knowledge Base</div>
+      <h1 class="text-5xl font-bold text-white mb-5"><span class="gradient-text">Insights</span></h1>
+      <p class="text-lg text-[#64748B] max-w-2xl">Practical knowledge from the frontlines of AI-powered quality engineering.</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- FEATURED ARTICLE -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-6">Featured Article</p>
+      <div class="card-hover article-card bg-[#1E293B] border border-[#334155] rounded-2xl overflow-hidden reveal cursor-pointer">
+        <div class="grid lg:grid-cols-2">
+          <div class="h-64 lg:h-auto bg-gradient-to-br from-[#0B3C5D] to-[#00AEEF]/20 flex items-center justify-center relative">
+            <span class="text-8xl">🤖</span>
+            <div class="absolute top-5 left-5 tag bg-[#0F172A]/80 text-[#00AEEF] border border-[#00AEEF]/20 text-[10px]">AI Testing</div>
+            <div class="absolute bottom-5 left-5 tag bg-[#0F172A]/80 text-[#94A3B8] text-[10px]">8 min read</div>
+          </div>
+          <div class="p-10">
+            <p class="text-xs text-[#475569] mb-3">March 2026</p>
+            <h2 class="text-2xl font-bold text-white mb-4 leading-snug">AI Testing Strategies for Modern Engineering Teams: A Practical Guide</h2>
+            <p class="text-[#94A3B8] text-sm leading-relaxed mb-6">
+              Most engineering teams treat testing as an afterthought. AI is changing that equation entirely. In this guide, we break down exactly how to leverage large language models and ML-driven tooling to write better tests, detect flakiness before it causes CI failures, and reduce manual QA overhead by up to 60% — without sacrificing coverage.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">AI/ML</span>
+              <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">Test Automation</span>
+              <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">Strategy</span>
+            </div>
+            <span class="read-link text-[#00AEEF] text-sm font-semibold transition-colors">Read Article →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ARTICLE GRID -->
+  <section class="py-16 bg-[#0A1323]">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-8">Latest Articles</p>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Article 1 -->
+        <article class="card-hover article-card bg-[#1E293B] border border-[#334155] rounded-2xl overflow-hidden reveal cursor-pointer">
+          <div class="h-44 bg-gradient-to-br from-purple-900/50 to-indigo-900/30 relative flex items-center justify-center">
+            <span class="text-5xl">🎭</span>
+            <div class="absolute top-4 left-4 tag bg-[#0F172A]/80 text-[#94A3B8] text-[10px]">Playwright</div>
+            <div class="absolute top-4 right-4 text-[10px] text-[#475569]">6 min</div>
+          </div>
+          <div class="p-6">
+            <p class="text-[10px] text-[#475569] mb-2">February 2026</p>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">Playwright at Scale: Architecture Patterns for Large Test Suites</h3>
+            <p class="text-[#64748B] text-xs mb-4 leading-relaxed">How to structure, organize, and execute 1,000+ Playwright tests without sacrificing speed or maintainability. Page Object patterns, fixtures, and parallel execution deep-dive.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Playwright</span>
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Architecture</span>
+            </div>
+            <span class="read-link text-[#00AEEF] text-sm font-semibold transition-colors">Read →</span>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="card-hover article-card bg-[#1E293B] border border-[#334155] rounded-2xl overflow-hidden reveal reveal-delay-1 cursor-pointer">
+          <div class="h-44 bg-gradient-to-br from-red-900/30 to-orange-900/20 relative flex items-center justify-center">
+            <span class="text-5xl">⚠️</span>
+            <div class="absolute top-4 left-4 tag bg-[#0F172A]/80 text-[#94A3B8] text-[10px]">Quality</div>
+            <div class="absolute top-4 right-4 text-[10px] text-[#475569]">5 min</div>
+          </div>
+          <div class="p-6">
+            <p class="text-[10px] text-[#475569] mb-2">February 2026</p>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">Flaky Test Detection: Root Causes and Permanent Fixes</h3>
+            <p class="text-[#64748B] text-xs mb-4 leading-relaxed">A systematic approach to identifying the 5 most common causes of test flakiness and implementing fixes that actually last. Async timing, shared state, and network dependency patterns.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Flaky Tests</span>
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">CI/CD</span>
+            </div>
+            <span class="read-link text-[#00AEEF] text-sm font-semibold transition-colors">Read →</span>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="card-hover article-card bg-[#1E293B] border border-[#334155] rounded-2xl overflow-hidden reveal reveal-delay-2 cursor-pointer">
+          <div class="h-44 bg-gradient-to-br from-green-900/30 to-teal-900/20 relative flex items-center justify-center">
+            <span class="text-5xl">🔗</span>
+            <div class="absolute top-4 left-4 tag bg-[#0F172A]/80 text-[#94A3B8] text-[10px]">CI/CD</div>
+            <div class="absolute top-4 right-4 text-[10px] text-[#475569]">7 min</div>
+          </div>
+          <div class="p-6">
+            <p class="text-[10px] text-[#475569] mb-2">January 2026</p>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">Building Quality Gates That Actually Block Bad Deploys</h3>
+            <p class="text-[#64748B] text-xs mb-4 leading-relaxed">Most teams set up quality gates wrong — they're either too strict (blocking everything) or too lenient (catching nothing). Here's the framework we use with every client.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">GitHub Actions</span>
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Quality Gates</span>
+            </div>
+            <span class="read-link text-[#00AEEF] text-sm font-semibold transition-colors">Read →</span>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="card-hover article-card bg-[#1E293B] border border-[#334155] rounded-2xl overflow-hidden reveal cursor-pointer">
+          <div class="h-44 bg-gradient-to-br from-yellow-900/30 to-amber-900/20 relative flex items-center justify-center">
+            <span class="text-5xl">📊</span>
+            <div class="absolute top-4 left-4 tag bg-[#0F172A]/80 text-[#94A3B8] text-[10px]">Strategy</div>
+            <div class="absolute top-4 right-4 text-[10px] text-[#475569]">4 min</div>
+          </div>
+          <div class="p-6">
+            <p class="text-[10px] text-[#475569] mb-2">January 2026</p>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">The QA Metrics That Actually Predict Release Quality</h3>
+            <p class="text-[#64748B] text-xs mb-4 leading-relaxed">Skip the vanity metrics. These are the 7 QA signals that correlate with production stability — and how to track them in your CI dashboard.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Metrics</span>
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Observability</span>
+            </div>
+            <span class="read-link text-[#00AEEF] text-sm font-semibold transition-colors">Read →</span>
+          </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="card-hover article-card bg-[#1E293B] border border-[#334155] rounded-2xl overflow-hidden reveal reveal-delay-1 cursor-pointer">
+          <div class="h-44 bg-gradient-to-br from-blue-900/40 to-[#0B3C5D]/50 relative flex items-center justify-center">
+            <span class="text-5xl">🧪</span>
+            <div class="absolute top-4 left-4 tag bg-[#0F172A]/80 text-[#94A3B8] text-[10px]">Testing</div>
+            <div class="absolute top-4 right-4 text-[10px] text-[#475569]">9 min</div>
+          </div>
+          <div class="p-6">
+            <p class="text-[10px] text-[#475569] mb-2">December 2025</p>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">Contract Testing with Pact: A Hands-On Tutorial for Microservices</h3>
+            <p class="text-[#64748B] text-xs mb-4 leading-relaxed">If you're testing microservices with E2E tests alone, you're doing it wrong. Contract testing with Pact catches API breaking changes before deployment — here's how to set it up.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Microservices</span>
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Pact</span>
+            </div>
+            <span class="read-link text-[#00AEEF] text-sm font-semibold transition-colors">Read →</span>
+          </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="card-hover article-card bg-[#1E293B] border border-[#334155] rounded-2xl overflow-hidden reveal reveal-delay-2 cursor-pointer">
+          <div class="h-44 bg-gradient-to-br from-[#0B3C5D]/80 to-cyan-900/20 relative flex items-center justify-center">
+            <span class="text-5xl">🚀</span>
+            <div class="absolute top-4 left-4 tag bg-[#0F172A]/80 text-[#94A3B8] text-[10px]">Engineering</div>
+            <div class="absolute top-4 right-4 text-[10px] text-[#475569]">5 min</div>
+          </div>
+          <div class="p-6">
+            <p class="text-[10px] text-[#475569] mb-2">December 2025</p>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">Shift-Left Testing: How to Make Quality Everyone's Responsibility</h3>
+            <p class="text-[#64748B] text-xs mb-4 leading-relaxed">Shift-left is not just a buzzword. It's the single highest-ROI change a team can make to their dev process. Here's a practical 4-week rollout plan.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Process</span>
+              <span class="px-2 py-0.5 bg-[#334155] rounded-full text-[10px] text-[#94A3B8]">Culture</span>
+            </div>
+            <span class="read-link text-[#00AEEF] text-sm font-semibold transition-colors">Read →</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0B3C5D]/40 via-[#0F172A] to-[#0F172A]"></div>
+    <div class="relative max-w-2xl mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl font-bold text-white mb-3">Stay Sharp</h2>
+      <p class="text-[#94A3B8] mb-8">One quality engineering insight, every two weeks. No fluff.</p>
+      <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input type="email" placeholder="your@email.com" class="flex-1 bg-[#1E293B] border border-[#334155] rounded-xl px-4 py-3 text-sm text-[#E5E7EB] placeholder-[#475569] focus:outline-none focus:border-[#00AEEF] transition-colors" />
+        <button class="btn-primary px-6 py-3 rounded-xl text-sm font-semibold text-white whitespace-nowrap" style="border:none;cursor:pointer">Subscribe →</button>
+      </div>
+      <p class="text-xs text-[#334155] mt-3">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#080F1C] border-t border-[#1E293B] py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold">T</div>
+            <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
+          </div>
+          <p class="text-sm text-[#475569] max-w-xs leading-relaxed">AI-Powered Quality Engineering for modern software teams.</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Company</p>
+          <div class="space-y-2.5">
+            <a href="services.html"     class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Services</a>
+            <a href="methodology.html"  class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Methodology</a>
+            <a href="case-studies.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Case Studies</a>
+            <a href="blog.html"         class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Blog</a>
+            <a href="about.html"        class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">About</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Get in Touch</p>
+          <div class="space-y-2.5">
+            <a href="contact.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Book a Call</a>
+            <p class="text-sm text-[#334155]">hello@turingslab.io</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-[#1E293B] pt-6"><p class="text-sm text-[#334155]">© 2026 Turing's Lab. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('navbar-solid', window.scrollY > 60));
+    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible'); observer.unobserve(e.target);} }), {threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
