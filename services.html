@@ -1,318 +1,1339 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services – Turing's Lab</title>
-  <meta name="description" content="Explore Turing's Lab QA services: Test Automation, AI-Assisted QA, and Quality Engineering for modern software teams." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    * { font-family: 'Space Grotesk', sans-serif; }
-    body { background-color: #0F172A; color: #E5E7EB; }
-    .navbar-solid { background-color: rgba(15,23,42,0.96) !important; backdrop-filter: blur(14px); border-bottom: 1px solid rgba(0,174,239,0.12); }
-    .gradient-text { background: linear-gradient(135deg,#00AEEF,#7DD3FC 50%,#00AEEF); background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:shimmer 4s linear infinite; }
-    @keyframes shimmer { 0%{background-position:0% center} 100%{background-position:200% center} }
-    .glow-sm { box-shadow: 0 0 20px rgba(0,174,239,0.15); }
-    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,174,239,0.15); border-color: rgba(0,174,239,0.4) !important; }
-    .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.65s ease,transform 0.65s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-    .reveal-delay-1 { transition-delay:0.1s; }
-    .reveal-delay-2 { transition-delay:0.2s; }
-    .section-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(0,174,239,0.25),transparent); }
-    .tag { display:inline-block; padding:4px 14px; border-radius:9999px; font-size:0.7rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; }
-    .btn-primary { background:linear-gradient(135deg,#00AEEF,#0088CC); transition:all 0.3s ease; display:inline-block; }
-    .btn-primary:hover { box-shadow:0 0 30px rgba(0,174,239,0.55); transform:translateY(-2px); }
-    .btn-outline { border:1px solid rgba(0,174,239,0.45); transition:all 0.3s ease; display:inline-block; }
-    .btn-outline:hover { border-color:#00AEEF; background:rgba(0,174,239,0.08); transform:translateY(-2px); }
-    .nav-link { transition:color 0.2s ease; }
-    .nav-link:hover { color:#00AEEF; }
-    .grid-bg { background-image:linear-gradient(rgba(0,174,239,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,174,239,0.04) 1px,transparent 1px); background-size:60px 60px; }
-    .check { color:#00AEEF; font-weight:700; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turing's Lab — Ship Faster, Break Less</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080A0E;
+    --surface: #0F1117;
+    --card: #161820;
+    --border: #1E2130;
+    --border-light: #262A3D;
+    --white: #F4F5F7;
+    --muted: #6B7280;
+    --accent: #4ADE80;
+    --accent-dim: rgba(74, 222, 128, 0.12);
+    --accent-glow: rgba(74, 222, 128, 0.25);
+    --red: #F87171;
+    --red-dim: rgba(248, 113, 113, 0.1);
+    --blue: #60A5FA;
+    --blue-dim: rgba(96, 165, 250, 0.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h1, h2, h3, h4 {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section { position: relative; z-index: 1; }
+
+  /* ── STICKY HEADER ── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(8, 10, 14, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .header-nav { display: flex; align-items: center; gap: 32px; }
+
+  .header-nav a {
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .header-nav a:hover { color: var(--white); }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #000;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .btn-primary.lg {
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 8px;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--muted); background: var(--card); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 700px;
+    background: radial-gradient(ellipse at center, rgba(74, 222, 128, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+
+  .hero-eyebrow .dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 5.5vw, 72px);
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+
+  .hero h1 .line-accent { color: var(--accent); display: block; }
+
+  .hero-sub {
+    font-size: 18px;
+    color: #94A3B8;
+    line-height: 1.65;
+    max-width: 500px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .hero-ctas { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+  .hero-proof {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .hero-proof-dots { display: flex; gap: -4px; }
+
+  .hero-proof-dots span {
+    width: 28px; height: 28px;
+    background: var(--card);
+    border: 2px solid var(--border-light);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    margin-left: -6px;
+  }
+
+  /* Hero right: visual card */
+  .hero-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(74,222,128,0.4), transparent);
+  }
+
+  .hero-card-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+  }
+
+  .metric-big {
+    font-family: 'Syne', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .metric-label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .bar-chart { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+
+  .bar-row { display: flex; align-items: center; gap: 10px; }
+
+  .bar-label { font-size: 12px; color: var(--muted); width: 90px; flex-shrink: 0; }
+
+  .bar-track {
+    flex: 1; height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--accent);
+    animation: barIn 1.2s ease forwards;
+    transform-origin: left;
+  }
+
+  @keyframes barIn {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .bar-fill.red { background: var(--red); }
+  .bar-fill.blue { background: var(--blue); }
+
+  .divider { height: 1px; background: var(--border); margin: 16px 0; }
+
+  .mini-stat-row { display: flex; gap: 16px; }
+
+  .mini-stat {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .mini-stat-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .mini-stat-lbl { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* ── SECTION SPACING ── */
+  .section { padding: 100px 0; }
+
+  .section-header { margin-bottom: 64px; }
+
+  .section-header h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    margin-top: 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-header p {
+    font-size: 17px;
+    color: #94A3B8;
+    max-width: 540px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── PROBLEM SECTION ── */
+  .problem-section { background: var(--surface); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .problem-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .problem-card:hover { border-color: var(--border-light); }
+
+  .problem-icon {
+    width: 40px; height: 40px;
+    background: var(--red-dim);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .problem-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .problem-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── SOLUTION ── */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .solution-points { display: flex; flex-direction: column; gap: 20px; }
+
+  .solution-point {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .solution-num {
+    width: 32px; height: 32px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(74,222,128,0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .solution-point-text h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .solution-point-text p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .solution-visual {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .solution-visual::before {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    pointer-events: none;
+  }
+
+  .code-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .code-comment { color: #475569; }
+  .code-kw { color: #60A5FA; }
+  .code-fn { color: #A78BFA; }
+  .code-str { color: var(--accent); }
+  .code-pass { color: var(--accent); font-weight: 600; }
+  .code-fail { color: var(--red); }
+
+  .test-results { display: flex; flex-direction: column; gap: 6px; }
+
+  .test-result {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 6px 10px;
+    background: var(--surface);
+    border-radius: 6px;
+  }
+
+  .test-result .badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  .badge-pass { background: rgba(74,222,128,0.15); color: var(--accent); }
+  .badge-fail { background: rgba(248,113,113,0.15); color: var(--red); }
+
+  /* ── SERVICES ── */
+  .services-section { background: var(--surface); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+
+  .service-card:hover {
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+  }
+
+  .service-card.featured {
+    border-color: rgba(74,222,128,0.3);
+  }
+
+  .service-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .service-tag {
+    display: inline-flex;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .tag-green { background: var(--accent-dim); color: var(--accent); }
+  .tag-blue { background: var(--blue-dim); color: var(--blue); }
+
+  .service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .service-card .desc {
+    font-size: 15px;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .service-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+
+  .service-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #CBD5E1;
+  }
+
+  .service-features li::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .service-ideal {
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .service-ideal strong { color: var(--white); display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── PROCESS ── */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(16.6% + 20px);
+    right: calc(16.6% + 20px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    z-index: 0;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+    position: relative;
+  }
+
+  .step-circle {
+    width: 56px; height: 56px;
+    background: var(--card);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .process-step:nth-child(2) .step-circle { border-color: var(--blue); color: var(--blue); }
+  .process-step:nth-child(3) .step-circle { border-color: #A78BFA; color: #A78BFA; }
+
+  .process-step h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .process-step p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── USE CASES ── */
+  .usecases-section { background: var(--surface); }
+
+  .usecases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .usecase-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+
+  .usecase-card:hover { border-color: rgba(74,222,128,0.25); }
+
+  .usecase-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .usecase-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .usecase-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ── FAQ ── */
+  .faq-list { max-width: 720px; margin: 0 auto; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 22px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    gap: 16px;
+    transition: color 0.2s;
+  }
+
+  .faq-q:hover { color: var(--accent); }
+
+  .faq-chevron {
+    font-size: 18px;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    color: var(--muted);
+  }
+
+  .faq-item.open .faq-chevron { transform: rotate(45deg); }
+
+  .faq-a {
+    font-size: 15px;
+    color: #94A3B8;
+    line-height: 1.65;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s;
+    padding-bottom: 0;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding-bottom: 20px;
+  }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse, rgba(74,222,128,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .final-cta p {
+    font-size: 18px;
+    color: #94A3B8;
+    margin-bottom: 48px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .final-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  .trust-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .trust-item span:first-child { color: var(--accent); font-size: 16px; }
+
+  /* ── CALENDLY PLACEHOLDER ── */
+  .calendly-box {
+    max-width: 600px;
+    margin: 48px auto 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .calendly-box p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .calendly-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--surface);
+    border: 1px dashed var(--border-light);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .calendly-placeholder .cal-icon { font-size: 32px; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .solution-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; gap: 40px; }
+    .process-steps::before { display: none; }
+    .header-nav { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 100px 0 60px; }
+    .hero h1 { font-size: 36px; }
+    .section { padding: 64px 0; }
+    .final-cta { padding: 80px 0; }
+    .service-card { padding: 28px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
-<body class="bg-[#0F172A] text-[#E5E7EB] antialiased">
+<body>
 
-  <!-- NAVBAR -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-400 py-4">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold text-base">T</div>
-        <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="services.html"     class="nav-link text-sm text-[#00AEEF] font-semibold">Services</a>
-        <a href="methodology.html"  class="nav-link text-sm text-[#94A3B8]">Methodology</a>
-        <a href="case-studies.html" class="nav-link text-sm text-[#94A3B8]">Case Studies</a>
-        <a href="about.html"        class="nav-link text-sm text-[#94A3B8]">About</a>
-        <a href="blog.html"         class="nav-link text-sm text-[#94A3B8]">Blog</a>
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">Turing's<span> Lab</span></a>
+    <nav class="header-nav">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#book" class="btn-primary">Book a free call</a>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     1. HERO
+══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span class="label">QA Automation for SaaS teams</span>
+        </div>
+        <h1>
+          Stop shipping bugs.<br>
+          <span class="line-accent">Ship faster instead.</span>
+        </h1>
+        <p class="hero-sub">
+          We build and run QA automation for SaaS startups with 5–20 engineers.
+          Reduce production bugs, release with confidence, and stop treating QA as a bottleneck.
+        </p>
+        <div class="hero-ctas">
+          <a href="#book" class="btn-primary lg">Get a free QA audit →</a>
+          <a href="#services" class="btn-ghost">See how it works</a>
+        </div>
+        <div class="hero-proof">
+          <div class="hero-proof-dots">
+            <span>🏢</span><span>🚀</span><span>⚡</span><span>🛡️</span>
+          </div>
+          &nbsp; Trusted by SaaS teams shipping weekly
+        </div>
       </div>
-      <div class="flex items-center gap-3">
-        <a href="contact.html" class="btn-primary hidden md:inline-block px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
-        <button id="menuBtn" class="md:hidden text-[#94A3B8] p-1">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <div class="hero-card">
+        <div class="hero-card-title">QA Health Dashboard — After Automation</div>
+        <div class="metric-row">
+          <div>
+            <div class="metric-big">87%</div>
+            <div class="metric-label">fewer production bugs</div>
+          </div>
+        </div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label">Test coverage</div>
+            <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+            <span style="font-size:12px;color:#94A3B8;width:32px;text-align:right">82%</span>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Release speed</div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:68%"></div></div>
+            <span style="font-size:12px;color:#94A3B8;width:32px;text-align:right">+68%</span>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Bug escapes</div>
+            <div class="bar-track"><div class="bar-fill red" style="width:13%"></div></div>
+            <span style="font-size:12px;color:#94A3B8;width:32px;text-align:right">−87%</span>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="mini-stat-row">
+          <div class="mini-stat">
+            <div class="mini-stat-val">3 days</div>
+            <div class="mini-stat-lbl">avg. onboarding</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-val">1 week</div>
+            <div class="mini-stat-lbl">to first tests live</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-val">24/7</div>
+            <div class="mini-stat-lbl">CI runs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     2. PROBLEM
+══════════════════════════════════════════ -->
+<section class="section problem-section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="label">Sound familiar?</div>
+      <h2>Your QA is costing you more than you think.</h2>
+      <p>Most SaaS teams at 5–20 engineers hit the same wall. QA doesn't scale with the team.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card fade-up">
+        <div class="problem-icon">🐛</div>
+        <h3>Bugs reach production</h3>
+        <p>Manual QA can't keep up with weekly sprints. A new feature ships, something else breaks. Customers notice before you do.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">🐌</div>
+        <h3>QA slows everything down</h3>
+        <p>Your team waits for a QA pass before every release. One tester becomes the bottleneck for ten engineers.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">💀</div>
+        <h3>Automation exists but doesn't work</h3>
+        <p>Someone wrote tests years ago. They're flaky, unmaintained, and the team ignores them. So you're back to manual testing.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">🔥</div>
+        <h3>Devs are doing QA instead of building</h3>
+        <p>Engineers end up doing regressions, writing test cases, and chasing edge cases. That's expensive and demoralizing.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">😰</div>
+        <h3>Every release is a risk</h3>
+        <p>There's no confidence in deployments. Each release is followed by a period of hoping nothing breaks.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">📈</div>
+        <h3>You're growing, QA isn't</h3>
+        <p>The team doubled this year. The product got bigger. The QA process stayed the same. The gap is widening.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     3. SOLUTION
+══════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="solution-grid">
+      <div>
+        <div class="section-header fade-up" style="margin-bottom:40px">
+          <div class="label">The fix</div>
+          <h2>Reliable QA you don't have to manage.</h2>
+          <p>We take ownership of your testing — from strategy to execution. Your team ships. We make sure it works.</p>
+        </div>
+        <div class="solution-points">
+          <div class="solution-point fade-up">
+            <div class="solution-num">01</div>
+            <div class="solution-point-text">
+              <h4>Playwright-based automation</h4>
+              <p>We build end-to-end, integration, and regression test suites using Playwright. Fast, reliable, and runs on every CI push.</p>
+            </div>
+          </div>
+          <div class="solution-point fade-up">
+            <div class="solution-num">02</div>
+            <div class="solution-point-text">
+              <h4>QA engineers embedded in your team</h4>
+              <p>Need human judgment? Our QA engineers join your Scrum, use your Jira, and act like a senior member of your team.</p>
+            </div>
+          </div>
+          <div class="solution-point fade-up">
+            <div class="solution-num">03</div>
+            <div class="solution-point-text">
+              <h4>Ongoing maintenance included</h4>
+              <p>Tests get stale when products change. We keep your suite healthy, updated, and running green on every release.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-visual fade-up">
+        <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">playwright test — login.spec.ts</div>
+        <div class="code-block">
+          <div><span class="code-comment">// TC-001: Successful login flow</span></div>
+          <div><span class="code-kw">test</span>(<span class="code-str">'user can log in'</span>, <span class="code-kw">async</span> ({ page }) => {</div>
+          <div>&nbsp;&nbsp;<span class="code-kw">await</span> loginPage.<span class="code-fn">goto</span>();</div>
+          <div>&nbsp;&nbsp;<span class="code-kw">await</span> loginPage.<span class="code-fn">fillEmail</span>(<span class="code-str">'user@app.com'</span>);</div>
+          <div>&nbsp;&nbsp;<span class="code-kw">await</span> loginPage.<span class="code-fn">fillPassword</span>(<span class="code-str">'secure123'</span>);</div>
+          <div>&nbsp;&nbsp;<span class="code-kw">await</span> loginPage.<span class="code-fn">submit</span>();</div>
+          <div>&nbsp;&nbsp;<span class="code-kw">await</span> <span class="code-fn">expect</span>(dashboardPage).<span class="code-fn">toBeVisible</span>();</div>
+          <div>});</div>
+        </div>
+        <div class="test-results">
+          <div class="test-result"><span class="badge badge-pass">PASS</span> Login with valid credentials (340ms)</div>
+          <div class="test-result"><span class="badge badge-pass">PASS</span> Redirects to dashboard (120ms)</div>
+          <div class="test-result"><span class="badge badge-pass">PASS</span> Session persists on refresh (280ms)</div>
+          <div class="test-result"><span class="badge badge-fail">FAIL</span> ← We catch this before you ship it</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     4. SERVICES
+══════════════════════════════════════════ -->
+<section class="section services-section" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="label">Two ways to work with us</div>
+      <h2>Pick the model that fits your team.</h2>
+      <p>Some teams need people. Some need systems. We offer both — no lock-in, no bloat.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-tag tag-blue">Staff Augmentation</div>
+        <h3>QA Engineers on your team</h3>
+        <p class="desc">We provide dedicated QA engineers who work as part of your team — not contractors you have to manage.</p>
+        <ul class="service-features">
+          <li>Junior, mid, and senior QA profiles available</li>
+          <li>Integrated into your Scrum ceremonies</li>
+          <li>Work in your tools: Jira, Slack, Notion</li>
+          <li>Manual testing + automation support</li>
+          <li>Flexible — scale up or down as needed</li>
+          <li>Onboard in 3–5 business days</li>
+        </ul>
+        <div class="service-ideal">
+          <strong>Best if you:</strong>
+          Need QA expertise inside your team, want someone who owns quality end-to-end, and don't want to hire full-time yet.
+        </div>
+        <a href="#book" class="btn-primary">Book a call →</a>
+      </div>
+      <div class="service-card featured fade-up">
+        <div class="service-tag tag-green">QA Automation as a Service</div>
+        <h3>Done-for-you automation system</h3>
+        <p class="desc">We take full ownership of your QA automation. You stop worrying about tests and start releasing with confidence.</p>
+        <ul class="service-features">
+          <li>Playwright-based E2E + regression test suite</li>
+          <li>CI/CD integration (GitHub Actions, GitLab, etc.)</li>
+          <li>Page Object Model architecture</li>
+          <li>Test maintenance included — tests stay green</li>
+          <li>Weekly reports: pass rate, coverage, new issues</li>
+          <li>BDD with Gherkin for non-technical visibility</li>
+        </ul>
+        <div class="service-ideal">
+          <strong>Best if you:</strong>
+          Want automation without managing it internally. We own the testing system. Your team owns the product.
+        </div>
+        <a href="#book" class="btn-primary">Book a call →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     5. PROCESS
+══════════════════════════════════════════ -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center">
+      <div class="label">How it works</div>
+      <h2>Start seeing results in one week.</h2>
+      <p>No drawn-out onboarding. No lengthy assessments. Three steps and you're running.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade-up">
+        <div class="step-circle">1</div>
+        <h3>Free QA Audit</h3>
+        <p>We review your current setup — what's tested, what's not, where bugs are coming from. 60-minute call. No commitment.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-circle">2</div>
+        <h3>Implement & Integrate</h3>
+        <p>We set up your test suite or place a QA engineer within your team. First tests running within 5 business days.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-circle">3</div>
+        <h3>Ongoing QA Coverage</h3>
+        <p>We maintain, expand, and optimize. You get weekly reports, CI results, and a QA layer that grows with your product.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     6. USE CASES
+══════════════════════════════════════════ -->
+<section class="section usecases-section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="label">Is this for you?</div>
+      <h2>Work with us if any of this is true.</h2>
+    </div>
+    <div class="usecases-grid">
+      <div class="usecase-card fade-up">
+        <span class="usecase-icon">🧑‍💻</span>
+        <h4>You rely on manual QA</h4>
+        <p>Your testers click through the app before every release. It's slow, it doesn't scale, and things still slip through.</p>
+      </div>
+      <div class="usecase-card fade-up">
+        <span class="usecase-icon">🔀</span>
+        <h4>Your automation is unreliable</h4>
+        <p>You have tests, but they're flaky. Half the team ignores them. No one wants to fix them. They're more noise than signal.</p>
+      </div>
+      <div class="usecase-card fade-up">
+        <span class="usecase-icon">🚨</span>
+        <h4>Bugs are reaching production</h4>
+        <p>Customers report issues before your team does. Each release has a rollback risk. This is fixable.</p>
+      </div>
+      <div class="usecase-card fade-up">
+        <span class="usecase-icon">📊</span>
+        <h4>Your team is growing fast</h4>
+        <p>More engineers, more features, more complexity — but QA hasn't scaled. The coverage gap is getting wider every sprint.</p>
+      </div>
+      <div class="usecase-card fade-up">
+        <span class="usecase-icon">⏱️</span>
+        <h4>Releases take too long</h4>
+        <p>Every deploy waits on a QA sign-off that takes days. You want to ship weekly but the process says otherwise.</p>
+      </div>
+      <div class="usecase-card fade-up">
+        <span class="usecase-icon">🏗️</span>
+        <h4>You're rebuilding or refactoring</h4>
+        <p>Big changes are coming. You need a test safety net before you touch the existing codebase. We build it fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     7. FAQ
+══════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center;max-width:600px;margin:0 auto 64px">
+      <div class="label">FAQ</div>
+      <h2>Questions we get every time.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you work alongside our existing team?
+          <span class="faq-chevron">+</span>
         </button>
+        <div class="faq-a">Yes. Whether we place a QA engineer or implement automation, we integrate into your existing workflow. We use your tools, attend your ceremonies, and work with your developers directly. No separate QA silo.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do we need to have automation already?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">No. We start from scratch if needed. We'll audit what you have (or don't have), define the right strategy, and build from there. Most clients come to us with little to no automation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How fast can we get started?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">After the initial call and QA audit, we typically onboard within 3–5 business days for staff augmentation. For automation as a service, the first tests are running in the first week.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What tech stacks and frameworks do you support?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">We work with any web-based SaaS product. Our automation stack is built on Playwright (TypeScript). For CI/CD, we support GitHub Actions, GitLab CI, CircleCI, and most standard pipelines. We adapt to your stack — not the other way around.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do you communicate with our team?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">We work async in Slack or your preferred channel. Weekly check-ins, detailed reports, and direct access to whoever is running your QA. No ticket systems or account managers between you and the work.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What if we want to stop or change the engagement?
+          <span class="faq-chevron">+</span>
+        </button>
+        <div class="faq-a">We work month-to-month. No long-term lock-ins. If your needs change — more engineers, less automation, or a full pause — we adjust. Everything we build is yours: tests, scripts, documentation.</div>
       </div>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden bg-[#1E293B]/95 backdrop-blur-md border-t border-[#334155] mt-4 px-6 py-5 space-y-4">
-      <a href="services.html"     class="block text-sm text-[#00AEEF] font-semibold">Services</a>
-      <a href="methodology.html"  class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Methodology</a>
-      <a href="case-studies.html" class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Case Studies</a>
-      <a href="about.html"        class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">About</a>
-      <a href="blog.html"         class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Blog</a>
-      <a href="contact.html"      class="btn-primary block text-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     8. FINAL CTA
+══════════════════════════════════════════ -->
+<section class="final-cta" id="book">
+  <div class="container">
+    <div class="label" style="margin-bottom:16px">Get started</div>
+    <h2>One call to know if we're the right fit.</h2>
+    <p>Free 60-minute QA audit. No pitch deck, no obligation. Just an honest look at your current setup and what needs to change.</p>
+    <div class="final-cta-btns">
+      <a href="#calendly" class="btn-primary lg">Book a free call →</a>
+      <a href="mailto:hello@turingslab.com" class="btn-ghost">Send us an email</a>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="relative grid-bg pt-36 pb-20 overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-72 bg-[#00AEEF] rounded-full filter blur-[100px] opacity-[0.07]"></div>
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <div class="tag bg-[#00AEEF]/10 text-[#00AEEF] border border-[#00AEEF]/20 mb-5">What We Offer</div>
-      <h1 class="text-5xl font-bold text-white mb-5">Our <span class="gradient-text">Services</span></h1>
-      <p class="text-lg text-[#64748B] max-w-2xl mx-auto">
-        Comprehensive quality engineering solutions designed for modern, high-velocity engineering teams who can't afford to ship broken software.
-      </p>
+    <div class="trust-row">
+      <div class="trust-item"><span>✓</span> No sales pressure</div>
+      <div class="trust-item"><span>✓</span> 60 minutes, honest audit</div>
+      <div class="trust-item"><span>✓</span> Results visible in week 1</div>
+      <div class="trust-item"><span>✓</span> Month-to-month engagements</div>
     </div>
-  </section>
 
-  <div class="section-divider"></div>
-
-  <!-- SERVICE 1: TEST AUTOMATION -->
-  <section id="automation" class="py-24">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="reveal">
-          <div class="tag bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-5">Service 01</div>
-          <h2 class="text-4xl font-bold text-white mb-5">Test Automation</h2>
-          <p class="text-[#94A3B8] leading-relaxed mb-6">
-            We build enterprise-grade automated test suites that run reliably, execute fast, and are maintainable long-term. From unit tests to full end-to-end flows, we automate the right things — not everything.
-          </p>
-          <p class="text-[#94A3B8] leading-relaxed mb-8">
-            Our automation-first mindset means every test we write is designed to provide maximum signal with minimum noise, integrated directly into your CI/CD pipeline from day one.
-          </p>
-          <ul class="space-y-2.5 mb-8">
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> E2E automation with Playwright, Cypress, or Selenium</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> API testing and contract validation</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Visual regression testing</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Mobile automation for iOS and Android</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Performance and load testing frameworks</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Parallel execution and test sharding</li>
-          </ul>
-          <a href="contact.html" class="btn-primary px-7 py-3.5 rounded-xl text-sm font-semibold text-white">Get Started →</a>
-        </div>
-
-        <div class="reveal reveal-delay-1 grid grid-cols-2 gap-4">
-          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover">
-            <div class="text-3xl mb-3">🎭</div>
-            <h3 class="font-bold text-white mb-2">Playwright</h3>
-            <p class="text-xs text-[#64748B] leading-relaxed">Modern, fast, reliable cross-browser automation. Our primary tool for web E2E testing.</p>
-          </div>
-          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover">
-            <div class="text-3xl mb-3">🌲</div>
-            <h3 class="font-bold text-white mb-2">Cypress</h3>
-            <p class="text-xs text-[#64748B] leading-relaxed">Developer-friendly E2E testing with real-time reloads and excellent debugging.</p>
-          </div>
-          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover">
-            <div class="text-3xl mb-3">🔬</div>
-            <h3 class="font-bold text-white mb-2">Selenium</h3>
-            <p class="text-xs text-[#64748B] leading-relaxed">Industry-standard web automation for legacy systems and complex grid setups.</p>
-          </div>
-          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover">
-            <div class="text-3xl mb-3">📡</div>
-            <h3 class="font-bold text-white mb-2">API Testing</h3>
-            <p class="text-xs text-[#64748B] leading-relaxed">REST/GraphQL contract testing with Postman, REST Assured, and custom frameworks.</p>
-          </div>
-        </div>
+    <div class="calendly-box" id="calendly">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:16px;text-align:left">Schedule a call — pick a time that works for you</p>
+      <div class="calendly-placeholder">
+        <span class="cal-icon">📅</span>
+        <span>Calendly embed goes here</span>
+        <span style="font-size:11px;color:#475569">Replace with: &lt;div class="calendly-inline-widget" data-url="https://calendly.com/YOUR_LINK"&gt;</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="section-divider"></div>
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <p>© 2025 Turing's Lab · Specialized QA automation for SaaS teams · <a href="mailto:hello@turingslab.com" style="color:var(--muted);text-decoration:none">hello@turingslab.com</a></p>
+</footer>
 
-  <!-- SERVICE 2: AI-ASSISTED QA -->
-  <section id="ai-qa" class="py-24 bg-[#0A1323]">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1 reveal">
-          <div class="bg-[#1E293B] border border-[#00AEEF]/25 rounded-2xl p-7 glow-sm space-y-4">
-            <div class="flex items-center gap-3 pb-4 border-b border-[#334155]">
-              <span class="text-xl">🤖</span>
-              <span class="text-sm font-semibold text-[#00AEEF]">AI Quality Engine — Active</span>
-            </div>
+<script>
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
 
-            <div class="space-y-3">
-              <div class="flex items-start gap-3 p-3 bg-[#0F172A] rounded-xl">
-                <span class="text-green-400 text-sm mt-0.5">✓</span>
-                <div>
-                  <p class="text-xs font-semibold text-[#CBD5E1] mb-0.5">Test Generation</p>
-                  <p class="text-[11px] text-[#64748B]">Generated 47 new test cases from API spec diff. Coverage +12%.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3 p-3 bg-[#0F172A] rounded-xl">
-                <span class="text-yellow-400 text-sm mt-0.5">⚠</span>
-                <div>
-                  <p class="text-xs font-semibold text-[#CBD5E1] mb-0.5">Flaky Test Detected</p>
-                  <p class="text-[11px] text-[#64748B]">dashboard.spec.ts:L142 — timing issue detected across 4 runs. Fix suggested.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3 p-3 bg-[#0F172A] rounded-xl">
-                <span class="text-red-400 text-sm mt-0.5">●</span>
-                <div>
-                  <p class="text-xs font-semibold text-[#CBD5E1] mb-0.5">Failure Pattern</p>
-                  <p class="text-[11px] text-[#64748B]">Payment flow failing after deploy #2841. Root cause: API response schema change.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3 p-3 bg-[#0F172A] rounded-xl">
-                <span class="text-[#00AEEF] text-sm mt-0.5">→</span>
-                <div>
-                  <p class="text-xs font-semibold text-[#CBD5E1] mb-0.5">Risk Prediction</p>
-                  <p class="text-[11px] text-[#64748B]">Checkout module: high risk score (8.4/10). Recommend additional E2E coverage before release.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  // Scroll-triggered fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-        <div class="order-1 lg:order-2 reveal reveal-delay-1">
-          <div class="tag bg-[#00AEEF]/10 text-[#00AEEF] border border-[#00AEEF]/20 mb-5">Service 02 · Most Popular</div>
-          <h2 class="text-4xl font-bold text-white mb-5">AI-Assisted QA</h2>
-          <p class="text-[#94A3B8] leading-relaxed mb-6">
-            We embed artificial intelligence directly into your quality process. From auto-generating test cases based on code changes to detecting flaky test patterns before they cause CI failures — AI makes your QA smarter, not just bigger.
-          </p>
-          <p class="text-[#94A3B8] leading-relaxed mb-8">
-            Our AI layer learns your codebase, understands your risk areas, and continuously improves your test coverage without requiring manual effort.
-          </p>
-          <ul class="space-y-2.5 mb-8">
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> AI-powered test case generation from specs and diffs</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Flaky test detection and root cause analysis</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Failure pattern recognition across CI runs</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Risk scoring per module and deploy</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Intelligent test prioritization for faster feedback</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Automated quality reporting and trend analysis</li>
-          </ul>
-          <a href="contact.html" class="btn-primary px-7 py-3.5 rounded-xl text-sm font-semibold text-white">Book a Demo →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- SERVICE 3: QUALITY ENGINEERING -->
-  <section id="quality-eng" class="py-24">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="reveal">
-          <div class="tag bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-5">Service 03</div>
-          <h2 class="text-4xl font-bold text-white mb-5">Quality Engineering</h2>
-          <p class="text-[#94A3B8] leading-relaxed mb-6">
-            Quality Engineering goes beyond testing. It's about building quality into every stage of your software delivery lifecycle — from architecture decisions to deployment pipelines.
-          </p>
-          <p class="text-[#94A3B8] leading-relaxed mb-8">
-            We act as your embedded quality partner, designing and implementing the systems, processes, and culture that make reliable software delivery your default state.
-          </p>
-          <ul class="space-y-2.5 mb-8">
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> CI/CD quality gate design and implementation</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Release strategy and deployment confidence</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Reliability engineering and SLO definition</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Test environment architecture and management</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> QA team coaching and process maturity assessment</li>
-            <li class="flex items-start gap-2 text-sm text-[#CBD5E1]"><span class="check mt-0.5">✓</span> Observability and monitoring integration</li>
-          </ul>
-          <a href="contact.html" class="btn-primary px-7 py-3.5 rounded-xl text-sm font-semibold text-white">Get Started →</a>
-        </div>
-
-        <div class="reveal reveal-delay-1 space-y-4">
-          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover flex gap-4">
-            <div class="text-2xl flex-shrink-0">🔗</div>
-            <div>
-              <h3 class="font-bold text-white mb-1.5 text-sm">CI/CD Integration</h3>
-              <p class="text-xs text-[#64748B] leading-relaxed">Quality gates embedded in GitHub Actions, GitLab CI, Jenkins, or CircleCI. Fail fast, fix fast.</p>
-            </div>
-          </div>
-          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover flex gap-4">
-            <div class="text-2xl flex-shrink-0">📊</div>
-            <div>
-              <h3 class="font-bold text-white mb-1.5 text-sm">Release Strategy</h3>
-              <p class="text-xs text-[#64748B] leading-relaxed">Canary releases, feature flags, and progressive delivery frameworks aligned with your risk tolerance.</p>
-            </div>
-          </div>
-          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover flex gap-4">
-            <div class="text-2xl flex-shrink-0">🛡️</div>
-            <div>
-              <h3 class="font-bold text-white mb-1.5 text-sm">Reliability Engineering</h3>
-              <p class="text-xs text-[#64748B] leading-relaxed">SLO/SLA definition, error budgets, chaos engineering, and incident response integration.</p>
-            </div>
-          </div>
-          <div class="bg-[#1E293B] border border-[#334155] rounded-2xl p-6 card-hover flex gap-4">
-            <div class="text-2xl flex-shrink-0">🎓</div>
-            <div>
-              <h3 class="font-bold text-white mb-1.5 text-sm">Team Enablement</h3>
-              <p class="text-xs text-[#64748B] leading-relaxed">Workshops, documentation, and coaching to embed quality engineering culture within your team.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- CTA -->
-  <section class="py-24 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0B3C5D]/50 via-[#0F172A] to-[#0F172A]"></div>
-    <div class="relative max-w-3xl mx-auto px-6 text-center reveal">
-      <h2 class="text-4xl font-bold text-white mb-5">Not Sure Which Service You Need?</h2>
-      <p class="text-[#94A3B8] mb-8 leading-relaxed max-w-xl mx-auto">Book a free 30-minute discovery call. We'll assess your current QA maturity and recommend the best path forward.</p>
-      <a href="contact.html" class="btn-primary px-10 py-4 rounded-2xl text-base font-bold text-white">Book a Free Discovery Call →</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-[#080F1C] border-t border-[#1E293B] py-14">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-10 mb-10">
-        <div class="md:col-span-2">
-          <div class="flex items-center gap-2.5 mb-4">
-            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold">T</div>
-            <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
-          </div>
-          <p class="text-sm text-[#475569] max-w-xs leading-relaxed">AI-Powered Quality Engineering. We help engineering teams ship reliable software faster.</p>
-        </div>
-        <div>
-          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Company</p>
-          <div class="space-y-2.5">
-            <a href="services.html"     class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Services</a>
-            <a href="methodology.html"  class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Methodology</a>
-            <a href="case-studies.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Case Studies</a>
-            <a href="blog.html"         class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Blog</a>
-            <a href="about.html"        class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">About</a>
-          </div>
-        </div>
-        <div>
-          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Get in Touch</p>
-          <div class="space-y-2.5">
-            <a href="contact.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Book a Call</a>
-            <p class="text-sm text-[#334155]">hello@turingslab.io</p>
-          </div>
-        </div>
-      </div>
-      <div class="border-t border-[#1E293B] pt-6 flex items-center justify-between">
-        <p class="text-sm text-[#334155]">© 2026 Turing's Lab. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('navbar-solid', window.scrollY > 60));
-    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
-    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible'); observer.unobserve(e.target);} }), {threshold:0.08});
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 60}ms`;
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
