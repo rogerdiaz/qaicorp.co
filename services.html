@@ -1115,6 +1115,11 @@
     transition: width 0.1s linear;
   }
 
+  /* ── STICKY CTA ── */
+  .sticky-cta { position: fixed; bottom: 24px; right: 24px; z-index: 999; box-shadow: 0 10px 30px rgba(10,12,16,0.25); opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; }
+  .sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  @media (max-width: 600px) { .sticky-cta { left: 16px; right: 16px; bottom: 16px; text-align: center; justify-content: center; } }
+
   /* ── TYPING CURSOR ── */
   .typing-cursor {
     display: inline-block;
@@ -1272,26 +1277,11 @@
       </div>
       <div class="problem-card fade-up">
         <div class="problem-num">02</div>
-        <h3>QA slows everything down</h3>
-        <p>Your team waits for a QA pass before every release. One tester becomes the bottleneck for ten engineers.</p>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-num">03</div>
-        <h3>Automation exists but doesn't work</h3>
-        <p>Someone wrote tests years ago. They're flaky, unmaintained, and the team ignores them. You're back to manual testing.</p>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-num">04</div>
         <h3>Devs are doing QA instead of building</h3>
         <p>Engineers end up doing regressions, writing test cases, and chasing edge cases. That's expensive and demoralizing.</p>
       </div>
       <div class="problem-card fade-up">
-        <div class="problem-num">05</div>
-        <h3>Every release is a risk</h3>
-        <p>There's no confidence in deployments. Each release is followed by a period of hoping nothing breaks.</p>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-num">06</div>
+        <div class="problem-num">03</div>
         <h3>You're growing, QA isn't</h3>
         <p>The team doubled this year. The product got bigger. The QA process stayed the same. The gap is widening.</p>
       </div>
@@ -1338,7 +1328,6 @@
         <div class="code-tabs">
           <button class="code-tab active" data-tab="playwright" onclick="switchTab('playwright', this)">Playwright</button>
           <button class="code-tab" data-tab="cypress" onclick="switchTab('cypress', this)">Cypress</button>
-          <button class="code-tab" data-tab="selenium" onclick="switchTab('selenium', this)">Selenium</button>
           <div class="tab-bar"><div class="tab-bar-fill" id="tabBarFill"></div></div>
         </div>
 
@@ -1382,27 +1371,6 @@
             <div class="test-result"><span class="badge badge-pass">PASS</span> Cart updates correctly (190ms)</div>
             <div class="test-result"><span class="badge badge-pass">PASS</span> Payment processed (510ms)</div>
             <div class="test-result"><span class="badge badge-pass">PASS</span> Redirects to confirmation (280ms)</div>
-            <div class="test-result"><span class="badge badge-fail">FAIL</span> ← We catch this before you ship it</div>
-          </div>
-        </div>
-
-        <!-- Selenium Panel -->
-        <div class="code-panel" id="panel-selenium" style="display:none">
-          <div class="code-label">selenium/tests — test_checkout.py</div>
-          <div class="code-block">
-            <div><span class="code-comment"># TC-042: Complete checkout flow</span></div>
-            <div><span class="code-kw">def</span> <span class="code-fn">test_user_completes_purchase</span>(driver):</div>
-            <div>&nbsp;&nbsp;cart_page = <span class="code-fn">CartPage</span>(driver)</div>
-            <div>&nbsp;&nbsp;cart_page.<span class="code-fn">goto</span>()</div>
-            <div>&nbsp;&nbsp;cart_page.<span class="code-fn">proceed_to_checkout</span>()</div>
-            <div>&nbsp;&nbsp;payment.<span class="code-fn">fill_card</span>(<span class="code-str">"4242..."</span>)</div>
-            <div>&nbsp;&nbsp;payment.<span class="code-fn">submit</span>()</div>
-            <div>&nbsp;&nbsp;<span class="code-kw">assert</span> <span class="code-str">"confirmation"</span> <span class="code-kw">in</span> driver.current_url</div>
-          </div>
-          <div class="test-results">
-            <div class="test-result"><span class="badge badge-pass">PASS</span> Cart updates correctly (240ms)</div>
-            <div class="test-result"><span class="badge badge-pass">PASS</span> Payment processed (530ms)</div>
-            <div class="test-result"><span class="badge badge-pass">PASS</span> URL includes /confirmation (310ms)</div>
             <div class="test-result"><span class="badge badge-fail">FAIL</span> ← We catch this before you ship it</div>
           </div>
         </div>
@@ -1546,24 +1514,9 @@
     </div>
     <div class="usecases-grid">
       <div class="usecase-card fade-up">
-        <div class="usecase-icon">🖱️</div>
-        <h4>You rely on manual QA</h4>
-        <p>Your testers click through the app before every release. It's slow, it doesn't scale, and things still slip through.</p>
-      </div>
-      <div class="usecase-card fade-up">
         <div class="usecase-icon">⚠️</div>
         <h4>Your automation is unreliable</h4>
         <p>You have tests, but they're flaky. Half the team ignores them. They're more noise than signal.</p>
-      </div>
-      <div class="usecase-card fade-up">
-        <div class="usecase-icon">🚨</div>
-        <h4>Bugs are reaching production</h4>
-        <p>Customers report issues before your team does. Each release carries rollback risk. This is fixable.</p>
-      </div>
-      <div class="usecase-card fade-up">
-        <div class="usecase-icon">📈</div>
-        <h4>Your team is growing fast</h4>
-        <p>More engineers, more features, more complexity — but QA hasn't scaled. The coverage gap widens every sprint.</p>
       </div>
       <div class="usecase-card fade-up">
         <div class="usecase-icon">⏱️</div>
@@ -1670,8 +1623,22 @@
   </div>
 </footer>
 
+<a href="#book" class="btn-primary sticky-cta" id="stickyCta">Book your free audit →</a>
+
 <script>
   document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('open'));
+
+  // STICKY CTA — shows once past the hero, hides once the final CTA is in view
+  window.addEventListener('scroll', () => {
+    const cta = document.getElementById('stickyCta');
+    const hero = document.querySelector('.hero');
+    const book = document.getElementById('book');
+    if (!cta || !hero || !book) return;
+    const pastHero = window.scrollY > hero.offsetTop + hero.offsetHeight;
+    const nearBook = window.scrollY + window.innerHeight > book.offsetTop + 80;
+    cta.classList.toggle('visible', pastHero && !nearBook);
+  });
+
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
@@ -1691,7 +1658,7 @@
   });
 
 
-  const tabs = ['playwright', 'cypress', 'selenium'];
+  const tabs = ['playwright', 'cypress'];
   let currentTab = 0;
   let autoInterval = null;
   let fillInterval = null;
