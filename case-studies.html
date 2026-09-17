@@ -1,265 +1,226 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Case Studies – Turing's Lab</title>
-  <meta name="description" content="Real results from real engineering teams. See how Turing's Lab has helped companies ship faster with confidence." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *{font-family:'Space Grotesk',sans-serif} body{background:#0F172A;color:#E5E7EB}
-    .navbar-solid{background:rgba(15,23,42,0.96)!important;backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,174,239,0.12)}
-    .gradient-text{background:linear-gradient(135deg,#00AEEF,#7DD3FC 50%,#00AEEF);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
-    @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
-    .card-hover{transition:transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s ease}
-    .card-hover:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,174,239,0.15);border-color:rgba(0,174,239,0.4)!important}
-    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
-    .reveal-delay-1{transition-delay:0.1s}.reveal-delay-2{transition-delay:0.2s}
-    .section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,174,239,0.25),transparent)}
-    .tag{display:inline-block;padding:4px 14px;border-radius:9999px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
-    .btn-primary{background:linear-gradient(135deg,#00AEEF,#0088CC);transition:all 0.3s ease;display:inline-block}
-    .btn-primary:hover{box-shadow:0 0 30px rgba(0,174,239,0.55);transform:translateY(-2px)}
-    .nav-link{transition:color 0.2s ease}.nav-link:hover{color:#00AEEF}
-    .grid-bg{background-image:linear-gradient(rgba(0,174,239,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,174,239,0.04) 1px,transparent 1px);background-size:60px 60px}
-    .metric-card{background:#0A1323;border:1px solid #1E293B;border-radius:12px;padding:16px 20px;text-align:center}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies – QAI Corp.</title>
+<meta name="description" content="Real results from real engineering teams. See how QAI Corp. has helped companies ship faster with confidence.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231A3A5C'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='900' font-size='26' fill='%23fff' text-anchor='middle'%3EQA%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QAI Corp.">
+<meta property="og:title" content="Case Studies – QAI Corp.">
+<meta property="og:description" content="Real results from real engineering teams. See how QAI Corp. has helped companies ship faster with confidence.">
+<meta property="og:url" content="https://qaicorp.co/case-studies.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0C10; --paper: #F7F5F0; --surface: #EDEAE3; --card: #FFFFFF;
+    --border: #D8D4CB; --muted: #7A7570; --accent: #1A3A5C; --accent2: #C8A96E;
+    --accent2-dim: rgba(200,169,110,0.12); --accent-dim: rgba(26,58,92,0.08);
+    --red: #B84040; --green: #2D6A4F;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Epilogue', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; line-height: 1.1; }
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent2); }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,245,240,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 32px; }
+  .header-inner { max-width: 1120px; margin: 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 20px; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .logo-mark { width: 32px; height: 32px; background: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; color: #fff; }
+  .logo-corp { color: var(--accent2); }
+  .header-nav { display: flex; align-items: center; gap: 32px; }
+  .header-nav a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .header-nav a:hover, .header-nav a.active { color: var(--ink); }
+  .header-actions { display: flex; align-items: center; gap: 16px; }
+  .menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; }
+  .mobile-menu { display: none; flex-direction: column; gap: 4px; padding: 16px 0 20px; border-top: 1px solid var(--border); }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 14px; color: var(--muted); text-decoration: none; padding: 10px 0; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; font-weight: 600; font-size: 13px; padding: 11px 24px; border-radius: 4px; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: #112844; transform: translateY(-1px); }
+  .page-hero { padding: 168px 0 64px; text-align: center; }
+  .page-hero .eyebrow { display: block; margin-bottom: 16px; }
+  .page-hero h1 { font-size: clamp(40px, 5.5vw, 56px); font-weight: 900; margin-bottom: 18px; }
+  .page-hero p { font-size: 17px; color: var(--muted); max-width: 600px; margin: 0 auto; font-weight: 300; }
+  .divider { height: 1px; background: var(--border); }
+  .section { padding: 96px 0; }
+  .case-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 2fr 1fr; margin-bottom: 32px; }
+  .case-main { padding: 48px; }
+  .case-tags { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .case-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; border: 1px solid; }
+  .tag-navy { background: var(--accent-dim); color: var(--accent); border-color: rgba(26,58,92,0.2); }
+  .tag-gold { background: var(--accent2-dim); color: #8B6914; border-color: rgba(200,169,110,0.3); }
+  .case-main h2 { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+  .case-meta { font-size: 13px; color: var(--muted); margin-bottom: 32px; }
+  .case-block { margin-bottom: 24px; }
+  .case-block h3 { font-family: 'Epilogue', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+  .case-block p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .tech-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tech-pill { background: var(--surface); border-radius: 100px; padding: 5px 14px; font-size: 12px; color: var(--muted); }
+  .case-quote { border-left: 3px solid var(--accent2); padding-left: 18px; margin-top: 32px; }
+  .case-quote p { font-size: 14.5px; font-style: italic; color: var(--ink); line-height: 1.7; }
+  .case-quote cite { display: block; font-style: normal; font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+  .case-results { background: var(--surface); padding: 48px 32px; display: flex; flex-direction: column; justify-content: center; }
+  .case-results-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 28px; }
+  .case-result { margin-bottom: 24px; }
+  .case-result-val { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 900; color: var(--accent); line-height: 1; }
+  .case-result-lbl { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .case-bar { margin-top: 8px; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .case-bar-fill { height: 100%; background: var(--accent2); border-radius: 3px; }
+  .placeholder-note { background: var(--accent-dim); border: 1px dashed var(--accent); border-radius: 12px; padding: 16px 20px; font-size: 13px; color: var(--accent); margin-bottom: 40px; }
+  .final-cta { padding: 120px 0; background: var(--accent); color: #fff; text-align: center; }
+  .final-cta h2 { color: #fff; font-size: clamp(32px, 4.5vw, 48px); margin-bottom: 16px; }
+  .final-cta p { color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 36px; font-weight: 300; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 8px; background: var(--accent2); color: #fff; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 6px; text-decoration: none; }
+  footer { background: var(--ink); border-top: 1px solid #1E2530; padding: 36px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 16px; color: var(--paper); }
+  .footer-logo span { color: var(--accent2); }
+  .footer-copy { font-size: 12px; color: #3A4A5A; }
+  .footer-copy a { color: #3A4A5A; text-decoration: none; }
+  .footer-copy a:hover { color: #5A6A80; }
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  @media (max-width: 900px) {
+    .header-nav { display: none; }
+    .menu-btn { display: block; }
+    .case-card { grid-template-columns: 1fr; }
+    .case-main { padding: 32px; }
+  }
+  @media (max-width: 600px) {
+    .page-hero { padding: 140px 0 48px; }
+    .section { padding: 64px 0; }
+    .container { padding: 0 20px; }
+  }
+</style>
 </head>
-<body class="bg-[#0F172A] text-[#E5E7EB] antialiased">
+<body>
 
-  <!-- NAVBAR -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-400 py-4">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold text-base">T</div>
-        <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="services.html"     class="nav-link text-sm text-[#94A3B8]">Services</a>
-        <a href="methodology.html"  class="nav-link text-sm text-[#94A3B8]">Methodology</a>
-        <a href="case-studies.html" class="nav-link text-sm text-[#00AEEF] font-semibold">Case Studies</a>
-        <a href="about.html"        class="nav-link text-sm text-[#94A3B8]">About</a>
-        <a href="blog.html"         class="nav-link text-sm text-[#94A3B8]">Blog</a>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="contact.html" class="btn-primary hidden md:inline-block px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
-        <button id="menuBtn" class="md:hidden text-[#94A3B8] p-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-      </div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-mark">QA</div>QAI<span class="logo-corp"> Corp.</span></a>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="case-studies.html" class="active">Case Studies</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+    <div class="header-actions">
+      <a href="contact.html" class="btn-primary">Book a Call</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden bg-[#1E293B]/95 backdrop-blur-md border-t border-[#334155] mt-4 px-6 py-5 space-y-4">
-      <a href="services.html"     class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Services</a>
-      <a href="methodology.html"  class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Methodology</a>
-      <a href="case-studies.html" class="block text-sm text-[#00AEEF] font-semibold">Case Studies</a>
-      <a href="about.html"        class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">About</a>
-      <a href="blog.html"         class="block text-sm text-[#94A3B8] hover:text-[#00AEEF] transition-colors">Blog</a>
-      <a href="contact.html"      class="btn-primary block text-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white">Book a Call</a>
-    </div>
-  </nav>
+  </div>
+  <div class="mobile-menu container" id="mobileMenu">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="methodology.html">Methodology</a>
+    <a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a>
+    <a href="contact.html">Book a Call</a>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section class="relative grid-bg pt-36 pb-20 overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-72 bg-[#00AEEF] rounded-full filter blur-[100px] opacity-[0.07]"></div>
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <div class="tag bg-[#00AEEF]/10 text-[#00AEEF] border border-[#00AEEF]/20 mb-5">Proof of Results</div>
-      <h1 class="text-5xl font-bold text-white mb-5"><span class="gradient-text">Case Studies</span></h1>
-      <p class="text-lg text-[#64748B] max-w-2xl mx-auto">Real problems. Real solutions. Measurable outcomes. See how we've helped engineering teams ship with confidence.</p>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="page-hero container">
+  <span class="eyebrow">Proof of results</span>
+  <h1>Case Studies</h1>
+  <p>Real problems. Real solutions. Measurable outcomes. See how we've helped engineering teams ship with confidence.</p>
+</section>
 
-  <div class="section-divider"></div>
+<div class="divider container" style="max-width:1120px"></div>
+
+<section class="section container">
+
+  <!-- TODO(Roger): replace these two illustrative case studies with QAI Corp.'s own,
+       attributable results before this page goes live — e.g. the TotalWine/Kibo ERP
+       Playwright migration or the Promerica QE engagement. The examples below are
+       generic and anonymized placeholders carried over from the site template. -->
+  <div class="placeholder-note fade-up">⚠️ Placeholder content — swap these two case studies for QAI Corp.'s own real, attributable client results before publishing.</div>
 
   <!-- CASE STUDY 1 -->
-  <section class="py-24">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="bg-[#1E293B] border border-[#334155] rounded-2xl overflow-hidden reveal">
-        <div class="grid lg:grid-cols-3">
-          <div class="lg:col-span-2 p-10 lg:p-12">
-            <div class="flex items-center gap-3 mb-7">
-              <div class="tag bg-blue-500/10 text-blue-400 border border-blue-500/20">SaaS Platform</div>
-              <div class="tag bg-green-500/10 text-green-400 border border-green-500/20">AI-Assisted QA</div>
-            </div>
-            <h2 class="text-3xl font-bold text-white mb-2">70% Faster Regression Cycles</h2>
-            <p class="text-[#94A3B8] mb-8 text-sm">B2B SaaS platform serving 500+ enterprise clients across North America</p>
+  <div class="case-card fade-up">
+    <div class="case-main">
+      <div class="case-tags">
+        <span class="case-tag tag-navy">SaaS Platform</span>
+        <span class="case-tag tag-gold">AI-Assisted QA</span>
+      </div>
+      <h2>70% Faster Regression Cycles</h2>
+      <p class="case-meta">B2B SaaS platform serving 500+ enterprise clients across North America</p>
 
-            <div class="space-y-7 mb-10">
-              <div>
-                <h3 class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-2">The Problem</h3>
-                <p class="text-[#94A3B8] text-sm leading-relaxed">The engineering team was running full regression manually before every release. Each cycle took 3–4 days, blocking weekly deployments. Production bugs were slipping through, causing escalations from enterprise customers. The team was stuck in a cycle of slow releases and reactive firefighting.</p>
-              </div>
-              <div>
-                <h3 class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-2">Our Solution</h3>
-                <p class="text-[#94A3B8] text-sm leading-relaxed">We implemented a full Playwright automation suite covering 275 critical user journeys, integrated into GitHub Actions. We added AI-powered failure analysis to detect flaky tests, and built a risk-based prioritization model that runs the highest-risk tests on every PR merge — cutting full regression to a 45-minute automated run.</p>
-              </div>
-              <div>
-                <h3 class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-2">Technologies Used</h3>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">Playwright</span>
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">GitHub Actions</span>
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">AI Failure Analysis</span>
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">TypeScript</span>
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">Allure Reports</span>
-                </div>
-              </div>
-            </div>
-
-            <blockquote class="border-l-2 border-[#00AEEF] pl-5 mb-8">
-              <p class="text-[#CBD5E1] text-sm italic leading-relaxed">"Turing's Lab transformed our QA process entirely. We went from dreading release day to deploying with confidence every single week. The AI-powered flaky test detection alone saved us 8 hours per sprint."</p>
-              <p class="text-[#64748B] text-xs mt-3 font-medium">— Head of Engineering, B2B SaaS Platform</p>
-            </blockquote>
-          </div>
-
-          <div class="bg-[#0A1323] p-10 border-l border-[#334155] flex flex-col justify-center">
-            <p class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-8">Results Achieved</p>
-            <div class="space-y-7">
-              <div>
-                <p class="text-4xl font-bold text-green-400 mb-1">70%</p>
-                <p class="text-xs text-[#64748B]">Faster regression cycles</p>
-                <div class="mt-2 h-1.5 bg-[#334155] rounded-full"><div class="h-full bg-green-500 rounded-full" style="width:70%"></div></div>
-              </div>
-              <div>
-                <p class="text-4xl font-bold text-[#00AEEF] mb-1">40%</p>
-                <p class="text-xs text-[#64748B]">Fewer production bugs</p>
-                <div class="mt-2 h-1.5 bg-[#334155] rounded-full"><div class="h-full bg-[#00AEEF] rounded-full" style="width:40%"></div></div>
-              </div>
-              <div>
-                <p class="text-4xl font-bold text-purple-400 mb-1">100%</p>
-                <p class="text-xs text-[#64748B]">CI/CD automation coverage</p>
-                <div class="mt-2 h-1.5 bg-[#334155] rounded-full"><div class="h-full bg-purple-500 rounded-full" style="width:100%"></div></div>
-              </div>
-              <div>
-                <p class="text-4xl font-bold text-orange-400 mb-1">65%</p>
-                <p class="text-xs text-[#64748B]">Reduction in manual QA hours</p>
-                <div class="mt-2 h-1.5 bg-[#334155] rounded-full"><div class="h-full bg-orange-500 rounded-full" style="width:65%"></div></div>
-              </div>
-            </div>
-          </div>
+      <div class="case-block"><h3>The Problem</h3><p>The engineering team was running full regression manually before every release. Each cycle took 3–4 days, blocking weekly deployments. Production bugs were slipping through, causing escalations from enterprise customers.</p></div>
+      <div class="case-block"><h3>Our Solution</h3><p>We implemented a full Playwright automation suite covering 275 critical user journeys, integrated into GitHub Actions, with AI-assisted failure analysis to detect flaky tests and a risk-based prioritization model — cutting full regression to a 45-minute automated run.</p></div>
+      <div class="case-block"><h3>Technologies Used</h3>
+        <div class="tech-pills">
+          <span class="tech-pill">Playwright</span><span class="tech-pill">GitHub Actions</span><span class="tech-pill">AI Failure Analysis</span><span class="tech-pill">TypeScript</span><span class="tech-pill">Allure Reports</span>
         </div>
       </div>
+      <div class="case-quote">
+        <p>"QAI Corp. transformed our QA process entirely. We went from dreading release day to deploying with confidence every single week."</p>
+        <cite>— Head of Engineering, B2B SaaS Platform</cite>
+      </div>
     </div>
-  </section>
-
-  <div class="section-divider"></div>
+    <div class="case-results">
+      <div class="case-results-label">Results Achieved</div>
+      <div class="case-result"><div class="case-result-val">70%</div><div class="case-result-lbl">Faster regression cycles</div><div class="case-bar"><div class="case-bar-fill" style="width:70%"></div></div></div>
+      <div class="case-result"><div class="case-result-val">40%</div><div class="case-result-lbl">Fewer production bugs</div><div class="case-bar"><div class="case-bar-fill" style="width:40%"></div></div></div>
+      <div class="case-result" style="margin-bottom:0"><div class="case-result-val">100%</div><div class="case-result-lbl">CI/CD automation coverage</div><div class="case-bar"><div class="case-bar-fill" style="width:100%"></div></div></div>
+    </div>
+  </div>
 
   <!-- CASE STUDY 2 -->
-  <section class="py-20 bg-[#0A1323]">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="bg-[#1E293B] border border-[#334155] rounded-2xl overflow-hidden reveal">
-        <div class="grid lg:grid-cols-3">
-          <div class="lg:col-span-2 p-10 lg:p-12">
-            <div class="flex items-center gap-3 mb-7">
-              <div class="tag bg-purple-500/10 text-purple-400 border border-purple-500/20">Fintech</div>
-              <div class="tag bg-[#00AEEF]/10 text-[#00AEEF] border border-[#00AEEF]/20">Quality Engineering</div>
-            </div>
-            <h2 class="text-3xl font-bold text-white mb-2">Zero Regressions in 6 Months of Releases</h2>
-            <p class="text-[#94A3B8] mb-8 text-sm">Digital payments startup processing $50M+ in monthly transactions</p>
+  <div class="case-card fade-up">
+    <div class="case-main">
+      <div class="case-tags">
+        <span class="case-tag tag-navy">Fintech</span>
+        <span class="case-tag tag-gold">Quality Engineering</span>
+      </div>
+      <h2>Zero Regressions in 6 Months of Releases</h2>
+      <p class="case-meta">Digital payments startup processing $50M+ in monthly transactions</p>
 
-            <div class="space-y-7 mb-10">
-              <div>
-                <h3 class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-2">The Problem</h3>
-                <p class="text-[#94A3B8] text-sm leading-relaxed">A growing fintech startup was shipping weekly but experiencing payment flow regressions on nearly every release. The stakes were high — bugs in payment processing meant direct revenue loss and regulatory risk. Their small QA team couldn't keep up with the development velocity.</p>
-              </div>
-              <div>
-                <h3 class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-2">Our Solution</h3>
-                <p class="text-[#94A3B8] text-sm leading-relaxed">We designed a risk-based Quality Engineering framework focused on the payment critical path. We built a dedicated payment flow test suite, implemented canary release strategy with automated rollback triggers, and established SLO monitoring that caught anomalies before users did.</p>
-              </div>
-              <div>
-                <h3 class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-2">Technologies Used</h3>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">Cypress</span>
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">Datadog</span>
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">GitLab CI</span>
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">Postman/Newman</span>
-                  <span class="px-3 py-1 bg-[#334155] rounded-full text-xs text-[#94A3B8]">Feature Flags</span>
-                </div>
-              </div>
-            </div>
-
-            <blockquote class="border-l-2 border-[#00AEEF] pl-5">
-              <p class="text-[#CBD5E1] text-sm italic leading-relaxed">"Before Turing's Lab, every release was a gamble. Now we ship every Friday with zero anxiety. Our error rate dropped to near-zero and our SRE team finally gets to sleep on weekends."</p>
-              <p class="text-[#64748B] text-xs mt-3 font-medium">— CTO, Digital Payments Startup</p>
-            </blockquote>
-          </div>
-
-          <div class="bg-[#0A1323] p-10 border-l border-[#334155] flex flex-col justify-center">
-            <p class="text-xs uppercase tracking-widest text-[#475569] font-semibold mb-8">Results Achieved</p>
-            <div class="space-y-7">
-              <div>
-                <p class="text-4xl font-bold text-green-400 mb-1">0</p>
-                <p class="text-xs text-[#64748B]">Payment regressions in 6 months</p>
-                <div class="mt-2 h-1.5 bg-[#334155] rounded-full"><div class="h-full bg-green-500 rounded-full" style="width:100%"></div></div>
-              </div>
-              <div>
-                <p class="text-4xl font-bold text-[#00AEEF] mb-1">99.97%</p>
-                <p class="text-xs text-[#64748B]">Transaction reliability score</p>
-                <div class="mt-2 h-1.5 bg-[#334155] rounded-full"><div class="h-full bg-[#00AEEF] rounded-full" style="width:99%"></div></div>
-              </div>
-              <div>
-                <p class="text-4xl font-bold text-purple-400 mb-1">3x</p>
-                <p class="text-xs text-[#64748B]">Deploy frequency increase</p>
-                <div class="mt-2 h-1.5 bg-[#334155] rounded-full"><div class="h-full bg-purple-500 rounded-full" style="width:80%"></div></div>
-              </div>
-              <div>
-                <p class="text-4xl font-bold text-orange-400 mb-1">80%</p>
-                <p class="text-xs text-[#64748B]">Reduction in incident response time</p>
-                <div class="mt-2 h-1.5 bg-[#334155] rounded-full"><div class="h-full bg-orange-500 rounded-full" style="width:80%"></div></div>
-              </div>
-            </div>
-          </div>
+      <div class="case-block"><h3>The Problem</h3><p>A growing fintech startup was shipping weekly but experiencing payment flow regressions on nearly every release. Bugs in payment processing meant direct revenue loss and regulatory risk, and their small QA team couldn't keep up.</p></div>
+      <div class="case-block"><h3>Our Solution</h3><p>We designed a risk-based quality engineering framework focused on the payment critical path, built a dedicated payment flow test suite, implemented a canary release strategy with automated rollback triggers, and established SLO monitoring.</p></div>
+      <div class="case-block"><h3>Technologies Used</h3>
+        <div class="tech-pills">
+          <span class="tech-pill">Cypress</span><span class="tech-pill">Datadog</span><span class="tech-pill">GitLab CI</span><span class="tech-pill">Postman/Newman</span><span class="tech-pill">Feature Flags</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0B3C5D]/50 via-[#0F172A] to-[#0F172A]"></div>
-    <div class="relative max-w-2xl mx-auto px-6 text-center reveal">
-      <h2 class="text-3xl font-bold text-white mb-4">Your Team Could Be Next</h2>
-      <p class="text-[#94A3B8] mb-8 leading-relaxed">Book a discovery call and let's talk about the specific results we can drive for your engineering team.</p>
-      <a href="contact.html" class="btn-primary px-10 py-4 rounded-2xl text-base font-bold text-white">Schedule a Free Discovery Call →</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-[#080F1C] border-t border-[#1E293B] py-14">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-10 mb-10">
-        <div class="md:col-span-2">
-          <div class="flex items-center gap-2.5 mb-4">
-            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00AEEF] to-[#0B7BBF] flex items-center justify-center text-[#0F172A] font-bold">T</div>
-            <span class="font-bold text-lg text-white">Turing's <span class="text-[#00AEEF]">Lab</span></span>
-          </div>
-          <p class="text-sm text-[#475569] max-w-xs leading-relaxed">AI-Powered Quality Engineering for modern software teams.</p>
-        </div>
-        <div>
-          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Company</p>
-          <div class="space-y-2.5">
-            <a href="services.html"     class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Services</a>
-            <a href="methodology.html"  class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Methodology</a>
-            <a href="case-studies.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Case Studies</a>
-            <a href="blog.html"         class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Blog</a>
-            <a href="about.html"        class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">About</a>
-          </div>
-        </div>
-        <div>
-          <p class="text-xs font-semibold text-white uppercase tracking-widest mb-5">Get in Touch</p>
-          <div class="space-y-2.5">
-            <a href="contact.html" class="block text-sm text-[#475569] hover:text-[#00AEEF] transition-colors">Book a Call</a>
-            <p class="text-sm text-[#334155]">hello@turingslab.io</p>
-          </div>
-        </div>
+      <div class="case-quote">
+        <p>"Before QAI Corp., every release was a gamble. Now we ship every Friday with zero anxiety."</p>
+        <cite>— CTO, Digital Payments Startup</cite>
       </div>
-      <div class="border-t border-[#1E293B] pt-6"><p class="text-sm text-[#334155]">© 2026 Turing's Lab. All rights reserved.</p></div>
     </div>
-  </footer>
+    <div class="case-results">
+      <div class="case-results-label">Results Achieved</div>
+      <div class="case-result"><div class="case-result-val">0</div><div class="case-result-lbl">Payment regressions in 6 months</div><div class="case-bar"><div class="case-bar-fill" style="width:100%"></div></div></div>
+      <div class="case-result"><div class="case-result-val">99.97%</div><div class="case-result-lbl">Transaction reliability score</div><div class="case-bar"><div class="case-bar-fill" style="width:99%"></div></div></div>
+      <div class="case-result" style="margin-bottom:0"><div class="case-result-val">3x</div><div class="case-result-lbl">Deploy frequency increase</div><div class="case-bar"><div class="case-bar-fill" style="width:80%"></div></div></div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('navbar-solid', window.scrollY > 60));
-    document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
-    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible'); observer.unobserve(e.target);} }), {threshold:0.08});
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+<!-- CTA -->
+<section class="final-cta">
+  <div class="container fade-up">
+    <span class="eyebrow" style="color:rgba(255,255,255,0.6);display:block;margin-bottom:16px">Get started</span>
+    <h2>Your team could be next</h2>
+    <p>Book a discovery call and let's talk about the specific results we can drive for your engineering team.</p>
+    <a href="contact.html" class="btn-gold">Schedule a Free Discovery Call →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">QAI<span> Corp.</span></div>
+  <div class="footer-copy">© 2026 QAI Corp. · Quality Assurance, Engineered. · <a href="mailto:hello@qaicorp.co">hello@qaicorp.co</a></div>
+</footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('open'));
+  const fadeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+</script>
 </body>
 </html>

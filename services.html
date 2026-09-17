@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QAI Corp. — Quality Assurance, Engineered.</title>
+<meta name="description" content="Four ways to work with QAI Corp: QA audits, automation framework architecture, ongoing test automation, and QA staff augmentation for SaaS, e-commerce, and fintech teams.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231A3A5C'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='900' font-size='26' fill='%23fff' text-anchor='middle'%3EQA%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QAI Corp.">
+<meta property="og:title" content="QAI Corp. — Services">
+<meta property="og:description" content="Four ways to work with QAI Corp: QA audits, automation framework architecture, ongoing test automation, and QA staff augmentation.">
+<meta property="og:url" content="https://qaicorp.co/services.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -111,7 +118,7 @@
 
   .logo-corp { color: var(--accent2); }
 
-  .header-nav { display: flex; align-items: center; gap: 36px; }
+  .header-nav { display: flex; align-items: center; gap: 32px; }
 
   .header-nav a {
     font-size: 13px;
@@ -122,7 +129,12 @@
     transition: color 0.2s;
   }
 
-  .header-nav a:hover { color: var(--ink); }
+  .header-nav a:hover, .header-nav a.active { color: var(--ink); }
+  .header-actions { display: flex; align-items: center; gap: 16px; }
+  .menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 4px; }
+  .mobile-menu { display: none; flex-direction: column; gap: 4px; padding: 16px 0 20px; border-top: 1px solid var(--border); }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 14px; color: var(--muted); text-decoration: none; padding: 10px 0; }
 
   /* ── BUTTONS ── */
   .btn-primary {
@@ -1000,6 +1012,7 @@
     .problem-grid { grid-template-columns: 1fr; }
     .usecases-grid { grid-template-columns: 1fr 1fr; }
     .header-nav { display: none; }
+    .menu-btn { display: block; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
 
@@ -1127,16 +1140,33 @@
 
 <header>
   <div class="header-inner">
-    <a href="#" class="logo">
+    <a href="index.html" class="logo">
       <div class="logo-mark">QA</div>
       QAI<span class="logo-corp"> Corp.</span>
     </a>
     <nav class="header-nav">
-      <a href="#services">Services</a>
-      <a href="#process">How it works</a>
-      <a href="#faq">FAQ</a>
+      <a href="index.html">Home</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
     </nav>
-    <a href="#book" class="btn-primary">Get your free audit →</a>
+    <div class="header-actions">
+      <a href="#book" class="btn-primary">Get your free audit →</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu container" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Book a Call</a>
   </div>
 </header>
 
@@ -1600,7 +1630,7 @@
       <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:16px;text-align:left;letter-spacing:0.05em;text-transform:uppercase;font-size:10px;font-weight:600">Book your QA audit</p>
       <div
         class="calendly-inline-widget"
-        data-url="https://calendly.com/YOUR_LINK"
+        data-url="https://calendly.com/dia12176/free-qa-audit-qai-corp"
         style="min-width:320px;height:630px;">
       </div>
       <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
@@ -1618,6 +1648,7 @@
 </footer>
 
 <script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('open'));
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
