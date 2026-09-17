@@ -651,6 +651,17 @@
     margin-bottom: 6px;
   }
 
+  .services-lead { margin-bottom: 48px; }
+  .services-next-header { text-align: center; margin: 8px 0 32px; }
+  .services-next-header .eyebrow { display: block; margin-bottom: 8px; }
+  .services-next-header h3 { font-size: 24px; font-weight: 900; color: var(--ink); }
+  .staffing-section { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--border); }
+  .staffing-header { text-align: center; max-width: 520px; margin: 0 auto 32px; }
+  .staffing-header .eyebrow { display: block; margin-bottom: 8px; }
+  .staffing-header h3 { font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 10px; }
+  .staffing-header p { font-size: 15px; color: var(--muted); }
+  .staffing-card { max-width: 640px; margin: 0 auto; }
+
   .btn-white {
     display: inline-flex;
     align-items: center;
@@ -1175,16 +1186,16 @@
   <div class="hero-left">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      <span class="badge-text">Senior-led QA · LATAM talent · US-grade quality</span>
+      <span class="badge-text">Senior-led QA · Same time zone as you · No overnight handoffs</span>
     </div>
     <h1>
       Quality Assurance,<br>
       <em id="typingText"></em><span class="typing-cursor" id="typingCursor"></span>
     </h1>
     <p class="hero-sub">
-      QAI Corp. helps SaaS, e-commerce, and fintech teams ship with confidence —
-      through expert QA strategy, automation frameworks, and dedicated engineers.
-      Without the overhead of hiring full-time.
+      QAI Corp. helps SaaS, e-commerce, and fintech teams find where bugs are
+      slipping through — then builds the automation to catch them before your
+      customers do. Start with a free QA audit, no commitment required.
     </p>
     <div class="hero-ctas">
       <a href="#book" class="btn-primary lg">Get your free QA audit →</a>
@@ -1310,7 +1321,7 @@
             <div class="sol-num">02</div>
             <div class="sol-content">
               <h4>QA engineers embedded in your team</h4>
-              <p>Senior QA engineers join your Scrum, use your Jira, and act like a permanent member of your team — without you hiring one.</p>
+              <p>Senior Test Automation Engineers and QA Strategists join your Scrum, use your Jira, and act like a permanent member of your team — in your time zone, without you hiring one.</p>
             </div>
           </div>
           <div class="solution-item fade-up">
@@ -1404,31 +1415,36 @@
 <section class="section services-section" id="services">
   <div class="container">
     <div class="section-header fade-up">
-      <div class="eyebrow">Our services</div>
-      <h2>Four ways to work with us.</h2>
-      <p>From a one-time audit to a full year of dedicated QA engineers — we adapt to where your team is right now.</p>
+      <div class="eyebrow">Start here</div>
+      <h2>Start with a QA Audit.</h2>
+      <p>A low-risk way to see exactly where your QA gaps are — before you commit to anything bigger. Most engagements start here.</p>
+    </div>
+
+    <div class="service-card featured fade-up services-lead">
+      <div class="service-tag tag-white">QA Audit & Strategy</div>
+      <h3>Know exactly where you stand.</h3>
+      <p class="desc">A complete diagnosis of your QA process — what's tested, what's not, and a clear roadmap to fix it. Delivered in 2–4 weeks, no long-term commitment.</p>
+      <ul class="service-features">
+        <li>Full QA process review</li>
+        <li>Risk assessment by feature area</li>
+        <li>Prioritized improvement roadmap</li>
+        <li>Tool & framework recommendations</li>
+        <li>60-minute debrief call included</li>
+      </ul>
+      <div class="service-ideal">
+        <strong>Best if you:</strong>
+        Don't know where your QA gaps are, or you're starting automation from scratch and need a strategy first.
+      </div>
+      <a href="#book" class="btn-white">Book your free audit →</a>
+    </div>
+
+    <div class="services-next-header fade-up">
+      <div class="eyebrow">Once you know where you stand</div>
+      <h3>We build the fix.</h3>
     </div>
     <div class="services-grid">
       <div class="service-card fade-up">
-        <div class="service-tag tag-navy">QA Audit & Strategy</div>
-        <h3>Know exactly where you stand.</h3>
-        <p class="desc">A complete diagnosis of your QA process — what's tested, what's not, and a clear roadmap to fix it. Delivered in 2–4 weeks.</p>
-        <ul class="service-features">
-          <li>Full QA process review</li>
-          <li>Risk assessment by feature area</li>
-          <li>Prioritized improvement roadmap</li>
-          <li>Tool & framework recommendations</li>
-          <li>60-minute debrief call included</li>
-        </ul>
-        <div class="service-ideal">
-          <strong>Best if you:</strong>
-          Don't know where your QA gaps are, or you're starting automation from scratch and need a strategy first.
-        </div>
-        <a href="#book" class="btn-primary">Book a call →</a>
-      </div>
-
-      <div class="service-card featured fade-up">
-        <div class="service-tag tag-white">QA Framework Architecture</div>
+        <div class="service-tag tag-gold">QA Framework Architecture</div>
         <h3>Automation built to last.</h3>
         <p class="desc">We design and build your entire test automation framework from scratch — structured for scale, maintainable by your team.</p>
         <ul class="service-features">
@@ -1442,11 +1458,11 @@
           <strong>Best if you:</strong>
           Have engineers but no automation structure, or your existing framework is unmaintainable and ignored.
         </div>
-        <a href="#book" class="btn-white">Book a call →</a>
+        <a href="#book" class="btn-outline">Book a call →</a>
       </div>
 
       <div class="service-card fade-up">
-        <div class="service-tag tag-gold">Test Automation Service</div>
+        <div class="service-tag tag-navy">Test Automation Service</div>
         <h3>Coverage, delivered by sprint.</h3>
         <p class="desc">We write, maintain, and expand your automated test suite on an ongoing basis. Your team ships — we make sure it works.</p>
         <ul class="service-features">
@@ -1460,10 +1476,17 @@
           <strong>Best if you:</strong>
           Have a framework but no bandwidth to write tests consistently, or coverage keeps falling behind development.
         </div>
-        <a href="#book" class="btn-primary">Book a call →</a>
+        <a href="#book" class="btn-outline">Book a call →</a>
       </div>
+    </div>
 
-      <div class="service-card fade-up">
+    <div class="staffing-section" id="staffing">
+      <div class="staffing-header fade-up">
+        <div class="eyebrow">For teams that already know they need this</div>
+        <h3>Need an embedded QA team instead of a project?</h3>
+        <p>If you already know you need dedicated, ongoing headcount rather than a scoped engagement, this is that option.</p>
+      </div>
+      <div class="service-card fade-up staffing-card">
         <div class="service-tag tag-navy">Staff Augmentation</div>
         <h3>Your QA team, without hiring.</h3>
         <p class="desc">Dedicated QA engineers embedded in your team — pre-vetted, supervised by us, onboarded in days. Annual contracts for stability.</p>
@@ -1503,7 +1526,7 @@
       <div class="process-step fade-up">
         <div class="step-num">2</div>
         <h3>Implement & Integrate</h3>
-        <p>We build your framework, write your tests, or place a QA engineer in your team. First results within 5 business days.</p>
+        <p>We build your framework, write your tests, or place a Test Automation Engineer or QA Strategist in your team. First results within 5 business days.</p>
       </div>
       <div class="process-step fade-up">
         <div class="step-num">3</div>
@@ -1569,7 +1592,7 @@
           Do you work alongside our existing team?
           <span class="faq-chevron">+</span>
         </button>
-        <div class="faq-a">Yes. Whether we place a QA engineer or implement automation, we integrate into your existing workflow. We use your tools, attend your ceremonies, and work directly with your developers. No separate QA silo.</div>
+        <div class="faq-a">Yes. Whether we place a Test Automation Engineer or implement automation, we integrate into your existing workflow. We use your tools, attend your ceremonies, and work directly with your developers. No separate QA silo.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
